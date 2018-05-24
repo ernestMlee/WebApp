@@ -1,0 +1,717 @@
+@font-face {
+    font-family: "Gothic";
+    src: url("../lib/fonts/GOTHIC.TTF");
+}
+
+@font-face {
+    font-family: "GothicBold";
+    src: url("../lib/fonts/GOTHICB.TTF");
+}
+
+/* =============================================================================
+  RESET, BOX SIZING, & CLEARFIX
+============================================================================= */
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+/* =============================================================================
+  BASE
+============================================================================= */
+
+body,
+html {
+	position: absolute;
+	height: 1080px;
+	width:1921px;
+	padding: 0;
+	margin: 0;
+    overflow: hidden;
+    cursor: none;
+    background-color: black;
+
+    /*Disable blue overlay when image click*/
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+/* =============================================================================
+  LAYOUT
+============================================================================= */
+
+
+/* wrapper */
+
+.wrapper {
+	margin: 0 auto;
+	width: 1920px;
+	/*min-width: 480px;*/
+}
+/* container */
+
+.container {
+	margin: 0;
+	width: 1920px;
+	height: 1080px;
+}
+
+
+/* =============================================================================
+  MEMORY GAME (mg)
+============================================================================= */
+
+
+/**
+ * Game container
+ *
+ * This is the overall container for the game. Different things get addead and
+ * removed from this container depending on the game state.
+ */
+
+/*Position of the entire memory gamePage*/
+.mg {
+	/* blank */
+	position: absolute;
+	height: 1080px;
+	width: 1920px;	
+	top:398px;
+	left:-204px;
+}
+/**
+ * Game meta
+ *
+ * The game meta is the section that displays the level and moves. It's appended
+ * to the game container at the start, and shows the level the user selected
+ * and the number of moves the user has played.
+ */
+
+.mg__meta {
+	margin-bottom: 10px;
+	color: #28aadc;
+}
+
+.mg__meta--item {
+	display: inline-block;
+}
+
+.mg__meta--left {
+	float: left;
+}
+
+.mg__meta--right {
+	float: right;
+}
+
+.mg__meta--level {
+	margin-right: 20px;
+}
+
+
+/**
+ * Game start screen
+ *
+ * The game start screen shows the "welcome" message and also a list for the
+ * user to choose a level. It's appended to the game container at the start,
+ * and once the user selects a level, it is removed from the container
+ */
+
+.mg__start-screen {
+	text-align: center;
+	padding: 80px 20px;
+}
+
+.mg__start-screen--heading {
+	margin-bottom: 10px;
+	color: #282a2f;
+	font-size: 30px;
+}
+
+.mg__start-screen--sub-heading {
+	font-size: 24px;
+	margin-bottom: 10px;
+	color: #28aadc;
+}
+
+.mg__start-screen--sub-heading::before,
+.mg__start-screen--sub-heading::after {
+	margin: 0 5px;
+	content: "-";
+}
+
+.mg__start-screen--text {
+	margin-bottom: 20px;
+}
+
+.mg__start-screen--level-select {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.mg__start-screen--level-select span {
+	color: #ff3c50;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.mg__start-screen--level-select span:hover {
+	color: #d50016;
+}
+
+
+/**
+ * Game wrapper
+ *
+ * The game wrapper is where the actual game resides. Inside here, all the
+ * memory tiles get arranged and ready for game play.
+ */
+
+.mg__wrapper {
+	width: 55%;
+	margin-left: auto;
+	margin-right: auto;
+	display: inline-block;
+}
+
+.mg__contents {
+	position: relative;
+	padding-bottom: 41%;
+	margin-left: -10px;
+	margin-right: -20px;
+}
+
+.mg__meta--moves {
+	font-size: 40.815px;
+	font-family: "Gotham-Black";
+	color: #55380b;
+	font-weight: bold;
+	line-height: 2;
+	text-align: center;
+	-moz-transform: matrix( 0.704847511898, 0, 0, 0.7040409912869, 0, 0);
+	-webkit-transform: matrix( 0.704847511898, 0, 0, 0.7040409912869, 0, 0);
+	-ms-transform: matrix( 0.704847511898, 0, 0, 0.7040409912869, 0, 0);
+	margin-top: 200px;
+	margin-left: 195px;
+}
+
+
+/**
+ * Game tiles
+ *
+ * The game tiles are the tiles that are laid down on the memory game board.
+ * These tiles are the ones that the user clicks on to flip and reveal some
+ * images. The level the user selects determines the position and size of
+ * the tiles.
+ */
+
+.mg__tile {
+	position: absolute;
+	padding: 23px;
+	background-color: transparent;
+}
+
+
+/* game__level-2 styles */
+
+.mg__level-2 .mg__tile {
+	width: 288px;
+	height: 283px;
+}
+
+.mg__level-2 .mg__tile-1 {
+	top: -70%;
+	left: 6%;
+}
+
+.mg__level-2 .mg__tile-2 {
+	top: -70%;
+	left: 35%;
+}
+
+.mg__level-2 .mg__tile-3 {
+	top: -70%;
+	left: 64%;
+}
+
+.mg__level-2 .mg__tile-4 {
+	top: -10%;
+	left: 6%;
+}
+
+.mg__level-2 .mg__tile-5 {
+	top: -10%;
+	left: 35%;
+}
+
+.mg__level-2 .mg__tile-6 {
+	top: -10%;
+	left: 64%;
+}
+
+.mg__level-2 .mg__tile-7 {
+	top: 50%;
+	left: 6%;
+}
+
+.mg__level-2 .mg__tile-8 {
+	top: 50%;
+	left: 35%;
+}
+
+.mg__level-2 .mg__tile-9 {
+	top: 50%;
+	left: 64%;
+}
+
+.mg__level-2 .mg__tile-10 {
+	top: -70%;
+	left: 93%;
+}
+
+.mg__level-2 .mg__tile-11 {
+	top: -10%;
+	left: 93%;
+}
+
+.mg__level-2 .mg__tile-12 {
+	top: 50%;
+	left: 93%;
+}
+
+
+}
+
+/**
+ * The tile inside
+ *
+ * The "tile inner" is the part of the tile that serves as the card. Inside
+ * this part, there's an outside and inside part. The outside of the card
+ * is the part that has the logo or the pattern or whatever...basically the
+ * part that doesn't show the content to be matched. The inside part has the
+ * actual images / info to be matched.
+ */
+.mg__tile--inner {
+	position: relative;
+	width: 288px;
+	height: 283px;
+	cursor: pointer;
+}
+.mg__tile--outside,
+.mg__tile--inside {
+	display: block;
+	position: absolute;
+	background-color: transparent;
+	top: 0;
+	left: 10%;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 0.3s, background 0.3s;
+	transition: transform 0.3s, background 0.3s;
+    /*box-shadow: 10px 10px 5px #888888;*/
+}
+.mg__tile--outside {
+	background: url("../lib/image/MemoryGame/Card/GameIcon.png") 50% 50% no-repeat;
+	background-color: transparent;
+	/*height: 244px;
+	width: 244px;*/
+/*	box-shadow: 10px 10px 5px #888888;*/
+}
+
+/*To change the position of inside card so that when flipped: inside card is still in the same position as the outside card*/
+.mg__tile--inside {
+/*	background-color: #f8fafc;*/
+/*	box-shadow: 0 0 0 1px #787a80;*/
+	-webkit-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+	left: 6%;
+	top: 10%;
+/*	box-shadow: 10px 10px 5px #888888;*/
+}
+
+/* some transforms for flipped cards */
+.mg__tile--inner.flipped .mg__tile--outside {
+	-webkit-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+.mg__tile--inner.flipped .mg__tile--inside {
+	-webkit-transform: rotateY(0);
+	transform: rotateY(0);
+}
+
+/* some transitions for correct guesses - only needs to happen on card inside */
+.mg__tile--inner.flipped.correct .mg__tile--inside {
+	background-color: transparent;
+}
+.countFlipped {
+/*
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+*/
+	-webkit-transition: -webkit-transform 0.3s, background 0.3s;
+	transition: transform 0.3s, background 0.3s;
+	-webkit-transform: rotateY(-180deg);
+/*	transform: rotateY(-180deg);*/
+}
+
+/**
+ * Game message
+ *
+ * The game message area is an area to display game messages. It's used in the
+ * default set up where no callback is set in the JS. If a callback is set up,
+ * then this message area likely won't display. Unless you decide to display it
+ * in your own custom callback though!
+ */
+.mg__onend {
+	padding: 80px 20px;
+	text-align: center;
+}
+.mg__onend--heading {
+	margin-bottom: 10px;
+	color: #28aadc;
+	font-size: 30px;
+}
+.mg__onend--message {
+	margin-bottom: 10px;
+}
+.end_game_message {
+	font-size: 60.726px;
+	font-family: "Gotham-Black";
+	color: rgb(151, 150, 150);
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 0.362;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 600px;
+}
+.end_game_messagesub {
+	font-size: 30.954px;
+	font-family: "Gotham-Black";
+	color: rgb(151, 150, 150);
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 0.58;
+	text-align: center;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 50px;
+}
+
+/* 565 × 133 pixels*/
+.endbutton_class {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 70.75px
+	background-color: transparent;
+	border: none;
+	outline: 0;
+}
+
+/**
+ * Game buttons
+ *
+ * A simple helper class for game buttons. Edit at your will.
+ */
+.mg__button {
+	margin-top: 950px;
+	;
+}
+.mg_button_class {
+	background-color: transparent;
+	border: none;
+}
+#mg_p {
+	font-size: 25.407px;
+	font-family: "Gotham-Black";
+	color: #765b51;
+	text-align: center;
+	position: fixed;
+}
+#mg_h1startscreen {
+	position: fixed;
+	top: 255px;
+	left: 260px;
+	
+}
+/*To change the position of timer countdown: GameCount*/
+.mg__meta--timedown {
+	font-size: 85.222px;
+	font-family: "Gotham-Black";
+	color: rgb(252, 252, 252);
+	line-height: 0.529;
+	text-align: center;
+	position: absolute;
+	top: -550px;
+	left: 500px;
+}
+.instruction_p {
+	color: white;
+	background: #f68b1e;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: 0.5em;
+	margin-top: 50px;
+	margin-bottom: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Gotham-Black";
+	padding-top: 0px;
+}
+#home_button {
+	position: fixed;
+	top: 1675px;
+	left: 400px;
+	z-index: 10;
+}
+
+.loseMessage {
+	font-size: 60px;
+	font-family: "Gotham-Black";
+	color: #808285;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: center;
+}
+
+.subLoseMessage { 
+	font-size: 30px;
+	font-family: "Gotham-Black";
+	color: #808285;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: center;
+}
+
+#start_button {
+	outline: 0;
+	position: fixed;
+	top: 1085px;
+	left: 275px;
+	z-index: 2;
+	opacity: 1;
+}
+
+.style_1 {
+  font-size: 40px;
+  font-family: "Gotham-Black";
+  color: #907c61;
+  text-transform: uppercase;
+  line-height: 0.761;
+  text-align: center;
+  position: absolute;
+  left: 350.835px;
+  top: 502.023px;
+}
+#page_qr {
+	height: 1920px;
+	width: 1080px;
+	display: none;
+	overflow-y: hidden;
+/*	background-image: url(../lib/breadtalk/image/BreadTalk_Memory_Game_QR_BG.jpg);*/
+}
+
+.button {
+	background-color: transparent;
+	outline: none;
+	border: none;
+}
+
+#submit_button {
+	position: fixed;
+	top: 1400px;
+	left: 300px;
+	z-index: 10;
+}
+
+#page_keyboard_1 {
+	background-image: url("../lib/breadtalk/image/BreadTalk_New_BG.png");
+}
+
+#thankyou_div_1 {
+	background-image: url("../lib/breadtalk/image/BreadTalk_Memory_Thank_You_Bg.jpg");
+	display: none;
+	height: 1920px;
+	width: 1080px;
+}
+
+#piece_1 {
+	position: fixed;
+	top: 600px;
+	left: 270px;
+}
+
+#piece_2 {
+	position: fixed;
+	top: 800px;
+	left: 270px;
+}
+
+
+#page_times_up {
+	height: 1920px;
+	width: 1080px;
+	background-image: url("../lib/breadtalk/image/Breadtalk_Memory_Game_Times_Up_Page.jpg");
+	display: none;
+}
+
+#page_generating_qr {
+	height: 1920px;
+	width: 1080px;
+	display: none;
+	background-image: url("../lib/breadtalk/image/BreadTalk_New_BG.png");
+}
+
+#bt_Memory_Home_Button {
+	position: absolute;
+	top: 1700px;
+	left: 400px;
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+	opacity: 1;
+}
+
+#bt_Memory_Times_Up_Home_Button {
+	position: fixed;
+	top: 1700px;
+	left: 400px;
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+	opacity: 1;
+	z-index: 1;
+}
+
+#back_button {
+	position: absolute;
+	top: 1700px;
+	left: 400px;
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+	opacity: 1;
+}
+
+#page_qr_2 {
+	height: 1920px;
+	width: 1080px;
+	background-image: url('../lib/breadtalk/image/BreadTalk_New_BG.png');
+	display: none;
+	overflow-y: hidden;
+}
+
+#page_qr_3 {
+	height: 1920px;
+	width: 1080px;
+	background-image: url('../lib/breadtalk/image/BreadTalk_New_BG.png');
+	display: none;
+	overflow-y: hidden;
+}
+
+#bt_Memory_Home_Button {
+	position: absolute;
+	top: 1700px;
+	left: 400px;
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+	opacity: 1;
+	z-index: 1;
+}
+
+#page_keyboard_2 {
+	background-image: url("../lib/breadtalk/image/BT_Memory_Keyboard.jpg");
+}
+
+#page_keyboard_3 {
+	background-image: url("../lib/breadtalk/image/BT_Memory_Keyboard.jpg");
+}
+
+#thankyou_div_2 {
+	background-image: url("../lib/breadtalk/image/BreadTalk_New_BG.png");
+	display: none;
+	height: 1920px;
+	width: 1080px;
+}
+
+#thankyou_div_3 {
+	background-image: url("../lib/breadtalk/image/BreadTalk_New_BG.png");
+	display: none;
+	height: 1920px;
+	width: 1080px;
+}
+
+#page_qr_1 {
+	height: 1920px;
+	width: 1080px;
+	background-image: url('../lib/breadtalk/image/BreadTalk_Memory_Win_BG.jpg');
+	display: none;
+	overflow-y: hidden;
+}
+
+#page_tnc_1 {
+	height: 1920px;
+	width: 1080px;
+	display: none;
+	background-image: url("../lib/breadtalk/image/Breadtalk_TnC_BG.jpg");
+}
+
+#page_tnc_2 {
+	height: 1920px;
+	width: 1080px;
+	display: none;
+	background-image: url("..lib/breadtalk/image/BreadTalk_New_BG.png");
+}
+
+#page_tnc_3 {
+	height: 1920px;
+	width: 1080px;
+	display: none;
+	background-image: url("..lib/breadtalk/image/BreadTalk_New_BG.png");
+}
+
+.agree_button {
+	position: fixed;
+	top: 1355px;
+	left: 286px;
+	width: 318px;
+	height: 118px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background-color: transparent;
+	border: none;
+}
+
+.require {
+	color: red;
+	font-size: 42.22px;
+	font-family: Verlag Book;
+	display: none;
+}
+
+#requireFillIn {
+	position: fixed;
+	top: 880px;
+	left: 340px;
+}

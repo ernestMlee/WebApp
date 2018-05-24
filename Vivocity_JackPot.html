@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>VivoCity_Jackpot</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" author="ErnestLee" content="width=device-width, initial-scale=1.0,  maximum-scale=1, user-scalable=no">
+
+        <script src="javascript/jquery-1.11.3.min.js"></script>
+        <script src="javascript/jquery-ui-1.10.3.min.js"></script>
+        <script src="javascript/jplayer.playlist.min.js"></script>
+        <script src="javascript/jquery.jplayer.min.js"></script>
+        <script src="javascript/ajax.js"></script>
+        <script src="javascript/trinax_all.js"></script>
+
+        <link rel="stylesheet" href="css/VivoCity.css">
+        <style style="text/css">
+        </style>
+    </head>
+    <body oncontextmenu="return false">
+        <audio id="ClickSoundAudio" src="lib/audio/Click.mp3"></audio>
+        <audio id="BackgroundAudio" src="lib/audio/background.mp3" loop></audio>
+        <audio id="CongratsAudio" src="lib/audio/GameWin.mp3"></audio>
+
+        <audio id="GameBackgroundAudio" src="lib/audio/Jackpotbackground.mp3" loop></audio>
+
+        <audio id="tap_correct" src="lib/audio/correct.mp3"></audio>
+        <audio id="tap_wrong" src="lib/audio/wrong.mp3"></audio>
+
+
+        <div id="VivoCity_Main" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=1; top:0px; left:0px;">
+
+            <!--Video Div-->
+            <div id="VivoCity_Start_Video" style="position:absolute;"></div>
+
+            <!-- Start Background Image -->
+            <!-- <img id="VivoCity_Start" src="lib/image/TouchToBegin.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> -->
+
+            <button style = "position: absolute; top:0px; left:0px; z-index: 100; width:1920px; height:1080px; outline: 0; border:0; background: transparent;" onclick="VivoStart()"></button>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="VivoCity_TnC_Page" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=2; display: none; top:0px; left:1921px;">
+
+            <!--Video Div-->
+            <div id="VivoCity_TnC_Video" style="position:absolute;"></div>
+
+            <!-- TnC Background Image -->
+            <!-- <img id="VivoCity_TnC" src="lib/image/VivoCityTnC.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> -->
+            
+            <div id = "Terms" class ="Container">
+                <div id = "Scrolling" class ="innerScroll">
+
+                    <p><font face ="Gothic"><b>Personal Data Protection Act Provisions </b></font></p>
+                    <p><font face ="Gothic">1. Please be informed that under the Singapore's Personal Data Protection Act, you have the discretion to decide if you would like to provide us with your personal information. However, we regret that you will not be eligible to participate in "Sure-Win Instant Fortune" game booth should you decline to do so. </font></p>
+                    <p><font face ="Gothic">2. By participating in the game, you agree to the collection, use and disclosure of your personal information (including your photograph) for the distribution and publication of sales, marketing and promotional materials relating to VivoCity and/or its tenants. For further information on our Privacy Policy, please refer to our website at www.vivocity.com.sg. </font></p> 
+                    <p><font face ="Gothic">3. You have the right to request access to and correct your personal information. You may also inform us if at any time you no longer wish for us to use your personal information in any particular manner. Kindly contact our Data Protection Officer at _MCTM_dpo@mapletree.com.sg or enquiries@vivocity.com.sg for us to process your request(s).</font></p>
+                    <p><font face ="Gothic"><b>General Conditions</b></font></p>
+                    <p><font face ="Gothic">1. Limited to one redemption / game play per shopper per day.</font></p>
+                    <p><font face ="Gothic">2. Prizes must be accepted as provided. Prizes are not transferable or exchangeable for cash. </font></p>
+                    <p><font face ="Gothic">3. Merchants' terms and conditions apply, and are subject to change without prior notice. Please check with respective outlets for complete details.</font></p>
+                    <p><font face ="Gothic">4. All participants are bound by the Terms and Conditions. The Organiser reserve the right to amend the Terms and Conditions as they deem fit without prior notice.</font></p>
+                    <p><font face ="Gothic">By submitting this entry form, I hereby acknowledge that I have read, understood and agreed with the Terms and Conditions of this game booth.</font></p> 
+                </div>
+            </div>
+
+            <img src="lib/image/Disagree.png" style="position:absolute; z-index:3; top:800px; left:420px; margin:auto;" onclick="DisgreeTnC();" />
+
+            <img src="lib/image/Agree.png" style="position:absolute; z-index:3; top:800px; left:1050px; margin:auto;" onclick="AgreeTnC();" />
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="VivoCity_Scan_Page" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=4; top:0px; left:0px;">
+
+            <!--Video Div-->
+            <div id="VivoCity_Scan_Video" style="position:absolute;"></div>
+ 
+            <!-- Scan Background Image -->
+            <!--<img id="VivoCity_Scan" src="lib/image/ScanNRIC.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> -->
+            
+            <input type="password" id= "NRICCodeField"  style="position:absolute; top:545px; left:690px; height:68px; width:545px; outline: 0; border: 0; font-size:70px; font-color:#765725; font-family:'Gothic'; background: transparent; z-index:100;" autofocus src="lib/image/transparent.png">
+
+            <img id="IAmAForeigner" src="lib/image/Foreigner.png"style="position:absolute; z-index:5; top:750px; left:750px; margin:auto;" onclick="ForeignerDetailsPage()"/>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="VivoCity_Invalid_ID" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=6; top:0px; left:0px;">
+
+            <!--Video Div-->
+            <!-- <div id="InvalidID_Video" style="position:absolute;"></div> -->
+
+            <img id="Invalid_ID_msg" src="lib/image/InvalidScan.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> 
+        </div>
+
+        <div id="VivoCity_Redeem_Error" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=6; top:0px; left:0px;">
+
+            <!--Video Div-->
+            <!-- <div id="RedeemError_Video" style="position:absolute;"></div> -->
+
+            <img id="Same_Redeemed_ID_Error_msg" src="lib/image/ErrorScan.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> 
+        </div>
+
+        <div id="VivoCity_Foreigner_Details" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=7; top:0px; left:1921px;">
+
+            <!--MainStart Image-->
+            <img id="Foreigner_Particulars" src="lib/image/ForeignersParticularsPage.png" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+
+            <table align="center" cellspacing="0" cellpadding="0" width="1920" top="550px">
+                <tr style="height: 1080;">
+                    <td width="1920">
+                        <div id="Foreigner_Input_Field_Error" style="z-index:8; position:absolute; top:370px; left:750px; display: none; font-size:40px; font-family:'Gothic'; width:1080; color:#fff;"><font face ="Gothic">* Please fill in all fields.</font></div>
+
+                        <form>
+                            <input type="text" id= "NameField"  style="z-index=8; position:absolute; top:475px; left:580px; height:52px; width:385px; outline:0; border: 0; font-size:28px; font-family:'Gothic'; color:#7c7676; background: transparent;" autofocus>
+                            <input type="text" id= "NRICField"  style="z-index=8; position:absolute; top:563px; left:580px; height:52px; width:385px; outline:0; border: 0; font-size:28px; font-family:'Gothic'; color:#7c7676;  background: transparent;">
+
+                            <select id="dropDownCountries">
+                                <option value="" selected disabled>Please Select Your Nationality ...</option>
+                            </select>  
+                        </form>
+
+                        <!-- keyboard -->
+
+                        <ul class="Keyboard_Foreigner" id="keyboard" style="z-index:8; position:absolute; left:1000px; top: 420px; color: #000;">
+
+                            <font face ="Gothic"><li class="symbol"><span class="off">1</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">2</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">3</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">4</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">5</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">6</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">7</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">8</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">9</span></li></font>
+                            <font face ="Gothic"><li class="symbol lastitem"><span class="off">0</span></li></font>
+                            
+                            <font face ="Gothic"><li class="letter" style="clear: left;">q</li></font>
+                            <font face ="Gothic"><li class="letter">w</li></font>
+                            <font face ="Gothic"><li class="letter">e</li></font>
+                            <font face ="Gothic"><li class="letter">r</li></font>
+                            <font face ="Gothic"><li class="letter">t</li></font>
+                            <font face ="Gothic"><li class="letter">y</li></font>
+                            <font face ="Gothic"><li class="letter">u</li></font>
+                            <font face ="Gothic"><li class="letter">i</li></font>
+                            <font face ="Gothic"><li class="letter">o</li></font>
+                            <font face ="Gothic"><li class="letter lastitem">p</li></font>
+                            
+                            <font face ="Gothic"><li class="letter" style="clear: left;">a</li></font>
+                            <font face ="Gothic"><li class="letter">s</li></font>
+                            <font face ="Gothic"><li class="letter">d</li></font>
+                            <font face ="Gothic"><li class="letter">f</li></font>
+                            <font face ="Gothic"><li class="letter">g</li></font>
+                            <font face ="Gothic"><li class="letter">h</li></font>
+                            <font face ="Gothic"><li class="letter">j</li></font>
+                            <font face ="Gothic"><li class="letter">k</li></font>
+                            <font face ="Gothic"><li class="letter">l</li></font>
+                            <font face ="Gothic"><li class="letter lastitem">z</li></font>
+                            
+                            <font face ="Gothic"><li class="letter" style="clear: left;">x</li></font>
+                            <font face ="Gothic"><li class="letter">c</li></font>
+                            <font face ="Gothic"><li class="letter">v</li></font>
+                            <font face ="Gothic"><li class="letter">b</li></font>
+                            <font face ="Gothic"><li class="letter">n</li></fint>
+                            <font face ="Gothic"><li class="letter">m</li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">@</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">.</span></li></font>
+                            <font face ="Gothic"><li class="symbol"><span class="off">-</span></li></font>
+                            <font face ="Gothic"><li class="symbol lastitem"><span class="off">_</span></li></font>
+                            
+                            <font face ="Gothic"><li class="clear" style=" clear: left; width: 260px;">Clear</li></font>
+                            <font face ="Gothic"> <li class="delete lastitem" style="width: 265px;">Delete</li></font>
+                            
+                            <font face ="Gothic"><li class="space lastitem">Space &nbsp;</li></font>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <img src="lib/image/Submit.png" style="position:absolute; z-index:8; top:770px; left:450px; margin:auto;" onclick="SubmitDetails();" />
+        </div>
+
+        <div id="VivoCity_Receipt_Details" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=9; top:0px; left:1921px;">
+			
+			 <!--Video Div-->
+            <div id="VivoCity_Receipt_Video" style="position:absolute;"></div>
+			
+            <!--MainStart Image-->
+            <!--<img id="Receipt_Particulars" src="lib/image/ReceiptParticularsPage.png" style="position:absolute; top:0px; left:0px; margin:auto;"/>-->
+
+            <button class = "MainReset" onclick="Reset()"></button>
+
+            <table align="center" cellspacing="0" cellpadding="0" width="1920" top="550px">
+                <tr style="height: 1080;">
+                    <td width="1920">
+                        <div id="ReceiptInput_Field_Error" style="z-index:10; position:absolute; top:270px; left:650px; display: none; font-size:35px; font-family:'Gothic'; width:1080; color:#fff;"><font face ="Gothic">* Please fill in appropriate fields.</font></div>
+
+                        <form>
+                            
+                            <!-- DropDown Menu to choose Participating Outlet -->
+                            <select id="dropDownShops_1">
+                                <option value="" selected disabled>Please Select Shops ...</option>
+                            </select>  
+
+                            <input type="text" id= "ReceiptField_1"  style="z-index=10; position:absolute; top:390px; left:873px; height:58px; width:265px; outline:0; border: 0; font-size:25px; font-family:'Gothic'; color:#765725; background: transparent;" autofocus>
+
+                            <select id="dropDownShops_2">
+                                <option value="" selected disabled>Please Select Shops ...</option>
+                            </select>    
+
+                            <input type="text" id= "ReceiptField_2"  style="z-index=10; position:absolute; top:585px; left:873px; height:58px; width:265px; outline:0; border: 0; font-size:25px; font-family:'Gothic'; color:#765725;  background: transparent;">
+
+                            <input type="checkbox" id= "AmaxCardField"  style="z-index=10; position:absolute; top:690px; left:420px; height:30px; width:30px; outline=0; border: 0; background: transparent;">
+                        </form>
+                        
+                        <!-- mobile keyboard -->
+
+                        <ul class="keyboard_receipt" id="mobile_keyboard" style="z-index:10; position:absolute; left:1200px; top: 300px; margin:auto; color: #000;">
+
+                            <!-- mobile keyboard -->
+                            <li class="symbol" style="clear: left; width: 100px;" ><font face ="GothicBold"><span class="off">1</span></font></li>
+                            <li class="symbol" style="width: 100px;"><font face ="GothicBold"><span class="off">2</span></font></li>
+                            <li class="symbol lastitem" style="width: 100px;"><font face ="GothicBold"><span class="off">3</span></font></li>
+                            
+                            <li class="symbol" style="clear: left; width: 100px;"><font face ="GothicBold"><span class="off">4</span></font></li>
+                            <li class="symbol" style="width: 100px;"><font face ="GothicBold"><span class="off">5</span></font></li>
+                            <li class="symbol lastitem" style="width: 100px;"><font face ="GothicBold"><span class="off">6</span></font></li>
+                            
+                            <li class="symbol" style="clear: left; width: 100px;"><font face ="GothicBold"><span class="off">7</span></font></li>
+                            <li class="symbol" style="width: 100px;"><font face ="GothicBold"><span class="off">8</span></font></li>
+                            <li class="symbol lastitem" style="width: 100px;"><font face ="GothicBold"><span class="off">9</span></font></li>
+                            
+                            <li class="clear" style="clear: left; width: 100px;"><img src ="lib/image/Clear.png"></li>
+                            <li class="symbol" style="width: 100px;"><font face ="GothicBold"><span class="off">0</span></font></li>
+                            <!-- <li class="delete lastitem" style="width: 100px;"><font face ="GothicBold">Backspace</font></li>  -->
+
+                            <li class="delete lastitem" style="width: 100px;"><img src ="lib/image/Backspace.png"></li> 
+
+                            <li class="symbol" style="clear: left; margin-left: 115px; width: 100px;"><font face ="GothicBold"><span class="off">.</span></font></li>                     
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="SubmitReceipt_button">
+                <img src="lib/image/Submit.png" class="TnC_button_animate" style="position:absolute; z-index:10; top:790px; left:720px; margin:auto;" onclick="SubmitReceiptDetails();" />
+            </div>
+        </div>
+
+        <div id="VivoCity_Min_Spending_120" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=11; top:0px; left:0px;">
+            <!--Video Div-->
+            <!-- <div id="Min_120_Video" style="position:absolute;"></div> -->
+
+            <img id="Min_Spending_120_msg" src="lib/image/Spend120.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> 
+
+        </div>
+
+        <div id="VivoCity_Min_Spending_150" align= " center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=11; top:0px; left:0px;">
+            <!--Video Div-->
+            <!-- <div id="Min_150_Video" style="position:absolute;"></div> -->
+
+            <img id="Min_Spending_150_msg" src="lib/image/Spend150.png" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+        </div>
+
+        <div id="JackpotGameInstructions" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=12; top:0px; left:1921px;">
+
+            <!-- Jackpot Game Instructions -->
+            <div id="VivoCity_JackPotInstructions" style="position:absolute;"></div>
+
+            <!-- Game Notification timer -->
+            <div id="Game_Notification_timer" style="z-index:10; position:absolute; top:609px; left:900px; font-size:90px; font-family:'GothicBold'; width:1080; color:#fff;"><font face ="GothicBold">5</font></div>
+
+            <!-- <img id="VivoCity_JackpotInstructions" src="lib/image/jackpotInstructions.png" style="position:absolute; left:0px; top:0px; width: 1920px; height:1080px;"/> -->
+
+            <button class = "MainReset" onclick="Reset()"></button>
+
+            <!-- <div id="StartJackpot_button">
+                <img src="lib/image/Ready.png" class="TnC_button_animate" style="position:absolute; z-index:12; top:1500px; left:350px; margin:auto;" onclick="StartJackpot();" />
+            </div>  -->
+        </div>
+
+        <div id="VivoCity_JackPotGamePage" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=13; top:0px; left:0px; margin:auto;">
+
+            <!--Video Div-->
+            <!-- <div id="VivoCity_GamePage_Video" style="position:absolute;"></div> -->
+
+            <img id="VivoCity_Jackpot" src="lib/image/GamePage.png" style="position:absolute; left:0px; top:0px; width: 1920px; height:1080px; z-index:90;"/>
+
+            <!-- <img id ="TEST" src="lib/image/TESTPLAYJACKPOT.png" style="position:absolute; z-index:100; top:50px; left:350px; margin:auto;" /> -->
+
+            <!-- INVISIBLE INPUT FIELD FOR OR CODE -->
+            
+            <input type="text" id= "GamePlayCodeField"  style="position:absolute; top:-500px; left:0px; height:160px; width:520px; outline: 1; border: 1; font-size:70px; font-color:white; font-family:'Arial'; background: transparent; z-index:100;" autofocus src="lib/image/transparent.png">
+
+            <!-- JackPot Reel GamePlay -->
+            <div id="reels">
+               <canvas id="canvas1" width="380px" height="300px"></canvas>;
+               <canvas id="canvas2" width="380px" height="300px"></canvas>;
+               <canvas id="canvas3" width="380px" height="300px"></canvas>;
+            </div>
+        </div>
+
+        <div id="VivoCity_PrintVoucherPreview" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=14; top:0px; left:1921px; ">
+
+            <!--Video Div-->
+            <div id="VivoCityCongrats_Video" style="position:absolute;"></div>
+
+            <!--MainStart Image-->
+            <!-- <img id="VivoCity_Congrats" src="lib/image/CongratsPrintPage.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> -->
+
+            <img id="JackpotWinnings_Description" style="position:absolute; top:333px; left:543px; z-index=99; margin:auto;">
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+        <div id="VivoCity_FullyRedeemed" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=14; top:0px; left:1921px; ">
+
+             <!--Video Div-->
+            <div id="VivoCityfull_Redeemed_Video" style="position:absolute;"></div>
+
+            <!--MainStart Image-->
+            <!-- <img id="VouchersFullyRedeemed" src="lib/image/VouchersFullyRedeemed.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> -->
+
+            <button class = "YesMemory" onclick="PlayMemory()"><img src= "lib/image/YES.png"></button>
+
+            <button class = "NoMemory" onclick="DontPlayMemory()"><img src= "lib/image/NO.png"></button>
+
+        </div>
+
+        <div id="load_VivoCityMemoryGame"></div>
+     </body>
+
+     <script>
+     
+        console.clear();
+        var idleTime = 0;
+        var stopIdleCounter = true;
+
+        var cursorPos = 0;
+        var shift = false, capslock = false;
+        var $write;
+
+        var code;
+
+        var isClicked = false;
+
+        var Notification_Timer = 5;
+        var setTimer;
+
+        //get a reference to the select element
+        var $select = $("#dropDownShops_1, #dropDownShops_2");
+        
+        var $selectCountries = $("#dropDownCountries");
+        
+
+        //With reference to prize display for Jackpot Spin
+        var Prize_1 = ["lib/image/Prize/CentralHK.png", "lib/image/Prize/CutlerySet.png"];
+        var Prize_2 = ["lib/image/Prize/SunnyPunch.png", "lib/image/Prize/Espirit.png", "lib/image/Prize/Morganfield's.png", "lib/image/Prize/KingLouis.png", "lib/image/Prize/Armani.png", "lib/image/Prize/shuumera.png" ];
+        var Prize_3 = ["lib/image/Prize/Modesto.png", "lib/image/Prize/Samsung.png", "lib/image/Prize/Timberland.png", "lib/image/Prize/BlackSociety.png", "lib/image/Prize/Rabeanco.png", "lib/image/Prize/CharcoalThai.png"];
+
+        $(function() {
+
+            document.getElementById("BackgroundAudio").pause();
+            document.getElementById("BackgroundAudio").currentTime = 0;
+            document.getElementById("BackgroundAudio").play();
+
+
+            /*************************************************************
+            *Background video*
+            *************************************************************/
+
+            $("#VivoCity_Start_Video").jPlayer({
+                ready: function(){ 
+                  $("#VivoCity_Start_Video").jPlayer("setMedia", {
+                        m4v: "lib/video/TouchToPlay.mov"
+                   }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:false,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCity_Start_Video").show();
+
+
+            $("#VivoCity_TnC_Video").jPlayer({
+                ready: function(){ 
+                  $("#VivoCity_TnC_Video").jPlayer("setMedia", {
+                        m4v: "lib/video/TnC.mp4"
+                   }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCity_TnC_Video").show();
+
+            $("#VivoCity_Scan_Video").jPlayer({
+               ready: function(){ 
+                 $("#VivoCity_Scan_Video").jPlayer("setMedia", {
+                       m4v: "lib/video/Scan.mp4"
+                  }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCity_Scan_Video").show();
+
+           
+            $("#VivoCity_Receipt_Video").jPlayer({
+               ready: function(){ 
+                 $("#VivoCity_Receipt_Video").jPlayer("setMedia", {
+                       m4v: "lib/video/Receipt.mp4"
+                  }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCity_Receipt_Video").show();
+
+            // $("#Min_150_Video").jPlayer({
+            //     ready: function(){ 
+            //       $("#Min_150_Video").jPlayer("setMedia", {
+            //             m4v: "lib/video/Min150.mp4"
+            //        }).jPlayer("play");
+            //     }, 
+            //     swfPath: "javascript",
+            //     muted:true,
+            //     loop: true,
+            //     supplied: "webmv, ogv, m4v",
+            //     size: { width: 1921, height: 1080 }
+            // });
+            // $("#Min_150_Video").show();
+
+            $("#VivoCity_JackPotInstructions").jPlayer({
+                ready: function(){ 
+                  $("#VivoCity_JackPotInstructions").jPlayer("setMedia", {
+                        m4v: "lib/video/Instruct.mp4"
+                   }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCity_JackPotInstructions").show();
+
+            $("#VivoCityCongrats_Video").jPlayer({
+                ready: function(){ 
+                  $("#VivoCityCongrats_Video").jPlayer("setMedia", {
+                        m4v: "lib/video/Win.mp4"
+                   }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCityCongrats_Video").show();
+
+            $("#VivoCityfull_Redeemed_Video").jPlayer({
+                ready: function(){ 
+                  $("#VivoCityfull_Redeemed_Video").jPlayer("setMedia", {
+                        m4v: "lib/video/FullyRedeemed.mp4"
+                   }).jPlayer("play");
+                }, 
+                swfPath: "javascript",
+                muted:true,
+                loop: true,
+                supplied: "webmv, ogv, m4v",
+                size: { width: 1921, height: 1080 }
+            });
+            $("#VivoCityfull_Redeemed_Video").show();
+
+            /*************************************************************
+            ************************************************************
+            *************************************************************/
+
+            $("#NRICCodeField").val("");
+            $("#NRICCodeField").focus();
+        	
+				
+			$("#GamePlayCodeField").val("");
+            $("#GamePlayCodeField").focus();
+				
+            setInterval(function() {
+                idleTime = idleTime + 1;
+                console.log(idleTime);
+                if (idleTime > 3) // 3 minutes
+                {
+                    location.reload();
+                }
+            }, 60000);
+
+            $(this).mousemove(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+
+            $(this).keypress(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+
+            //Keyboard InputField
+            $("#NameField").focus(function() {
+                $write = $('#NameField');
+                $("#keyboard").show();
+            });
+            $("#NRICField").focus(function() {
+                $write = $('#NRICField');
+                $("#keyboard").show();
+            });
+            $("#ReceiptField_1").focus(function() {
+                $write = $('#ReceiptField_1');
+                $("#keyboard").show();
+            });
+            $("#ReceiptField_2").focus(function() {
+                $write = $('#ReceiptField_2');
+                $("#keyboard").show();
+            });
+
+            /*************************************************************
+            *FUNCTION CALL TO POPULATE DROPDOWN_SHOPS MENU FROM JSON FILE*
+            *************************************************************/
+
+            //request the JSON data and parse into the select element
+            $.getJSON('ajax/shops.json', function(data) {
+
+                $select.html('');
+                console.log("shops: " + data.Shops);
+
+                $select.append("<option value='' selected disabled>Please Select Shops.. </option>");
+
+                $.each(data.Shops, function(key, value) {
+                    
+                    console.log("value:" + value);
+                    //iterate over the data and append a select option
+                    $select.append("<option >" + value.ShopName + "</option>");
+                    
+                });
+            });
+
+
+            /***********************************************************
+            *FUNCTION CALL TO POPULATE DROPDOWN_COUNTRIES MENU FROM JSON FILE*
+            ***********************************************************/
+
+            //request the JSON data and parse into the select element
+            $.getJSON('ajax/countries.json', function(data) {
+
+                $selectCountries.html('');
+                console.log("countries: " + data.Countries);
+
+                $selectCountries.append("<option value='' selected disabled>Please Select Your Nationality ... </option>");
+
+                $.each(data.Countries, function(key, value) {
+                    
+                    console.log("value:" + value);
+                    //iterate over the data and append a select option
+                    $selectCountries.append("<option >" + value.CountryName + "</option>");
+                    
+                });
+            });
+
+            $("img").on("dragstart", function(event) { event.preventDefault(); });
+        });
+
+        $('#NameField').on('click', function() {
+            cursorPos = document.getElementById("NameField").selectionStart;
+        });
+
+        $('#NRICField').on('click', function() {
+            cursorPos = document.getElementById("NRICField").selectionStart;
+        });
+        $("#ReceiptField_1").on('click', function() {
+            cursorPos = document.getElementById("ReceiptField_1").selectionStart;
+        });
+
+        $("#ReceiptField_2").on('click', function() {
+            cursorPos = document.getElementById("ReceiptField_2").selectionStart;
+        });
+
+        document.onmousedown = disableclick;
+
+        function disableclick(event)
+        {
+            if(event.button == 2)
+            {
+                return false; 
+            }
+        }
+
+        function Reset(){
+
+            location.reload();
+        }
+
+        function DisgreeTnC(){
+
+            location.reload();
+        }
+
+        function DontPlayMemory(){
+
+            location.reload();
+        }
+
+        function VivoStart(){
+            idleTime = 0;
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+			$("#VivoCity_Start_Video").jPlayer("pause");
+
+            ajax_addInteraction("function.do", "formType=addInteraction&application=MAIN&mediaURL=1.mp4&projectID=Vivo&interaction=TOUCH");
+
+            $('#VivoCity_Main').fadeOut({ duration: 1200, queue: false });
+            $('#VivoCity_Main').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+    
+            $('#VivoCity_TnC_Page').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+            $('#VivoCity_TnC_Page').fadeIn({ duration: 1200, queue: false});
+        }
+
+        function AgreeTnC(){
+
+            idleTime = 0;
+
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            $('#VivoCity_TnC_Page').fadeOut({ duration: 1200, queue: false });
+            $('#VivoCity_TnC_Page').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+    
+            $('#VivoCity_Scan_Page').fadeIn({ duration: 1200, queue: false, complete: function(){
+
+                /*================= SCAN:SINGAPOREAN OR PR NRIC BARCODE===================================================================================================*/
+                $("#NRICCodeField").on("input",function(e){
+
+                    /*========Check for 9 characters in ID card, if it is 9 characters: accept and perform other checks, else reject=======================================*/
+                    if($("#NRICCodeField").val().length == 9){
+
+                        console.log("Local NRICCodeField equal to 9 characters");  
+
+                        ValidateInputID();
+                        return;
+                    } 
+                });
+            }});
+        }
+
+        function ValidateInputID(){
+
+            /*===Slice and Grab the First Character of the ID captured===*/
+            var ID_First_Character = $("#NRICCodeField").val().slice(0, 1);
+
+            console.log("ID_First_Character:" + ID_First_Character );
+
+            console.log("NRICCodeField:" + $("#NRICCodeField").val());
+
+
+            /*==============Check for  First character if it is Singaporean ==> S/T or FIN ==> F/G: if is Singapore NRIC: accept and check for duplicate: else if it is FIN NRIC: splice and accept first 9 characters and check for duplicates============================*/
+
+            if((ID_First_Character == 'S') || (ID_First_Character == 'T')){
+
+                /*========================= CHECK DUPLICATE NRIC ===========================================================================================*/
+                ajax_voucher_checkExistCustomer("game.do", "formType=checkExistCustomer&name=" + $.trim($("#NRICCodeField").val()));
+            } else if((ID_First_Character == 'G') || (ID_First_Character == 'F')){
+                //Check if first character is "G" or "F": work permit
+
+                //If Detect Scanned ID is FIN, Slice first 9 characters and accept and check for Duplicate
+                var WorkerPermitID =  $("#NRICCodeField").val().slice(0, 9);
+
+                console.log("WorkerPermitID:" + WorkerPermitID);
+
+                /*========================= CHECK DUPLICATE NRIC ===========================================================================================*/
+                ajax_voucher_checkExistCustomer("game.do", "formType=checkExistCustomer&name=" + WorkerPermitID);
+            }else{
+
+                console.log("not valid ID" );
+
+                $('#VivoCity_Scan_Page').fadeOut({ duration: 1200, queue: false });
+                $('#VivoCity_Invalid_ID').fadeIn({ duration: 1200, queue: false});
+
+                setTimeout(function() {
+
+                    $('#VivoCity_Invalid_ID').fadeOut({ duration: 1200, queue: false });
+                    
+                    $('#VivoCity_Scan_Page').fadeIn({ duration: 1200, queue: false});
+
+                    //Reset Field to empty
+                    $("#NRICCodeField").val("");
+                    $("#NRICCodeField").focus();
+                }, 6000); 
+            }
+        }
+
+        function ForeignerDetailsPage(){
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            idleTime = 0;
+
+            $("#NameField").val("");
+            $("#NameField").focus();
+
+            $("#NRICField").val("");
+            $("#NRICField").focus();
+
+            $("#ReceiptField_1").val("");
+            $("#ReceiptField_1").focus();
+            
+            $("#ReceiptField_2").val("");
+            $("#ReceiptField_2").focus();
+			
+			isClicked = true;
+
+            $('#VivoCity_Scan_Page').fadeOut({ duration: 1200, queue: false });
+            $('#VivoCity_Scan_Page').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+
+
+            $('#VivoCity_Foreigner_Details').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+
+            $('#VivoCity_Foreigner_Details').fadeIn({ duration: 1200, queue: false, complete: function(){
+
+                //Keyboard functionality
+
+                $('#keyboard li').off('click').on('click',function(){
+                    console.log("click");
+                    idleTime = 0;
+                    
+                    var $this = $(this),
+                        character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
+                    console.log("character:" +character);
+                    
+                    // Shift keys
+                    if ($this.hasClass('left-shift') || $this.hasClass('right-shift')) {
+                        $('.letter').toggleClass('uppercase');
+                        $('.symbol span').toggle();
+                        
+                        shift = (shift === true) ? false : true;
+                        capslock = false;
+                        return false;
+                    }
+                    
+                    // Caps lock
+                    if ($this.hasClass('capslock')) {
+                        $('.letter').toggleClass('uppercase');
+                        capslock = true;
+                        return false;
+                    }
+                    
+                    // Delete
+                    if ($this.hasClass('delete')) {
+                        var html = $write.val();
+                        
+                        $write.val(html.substr(0, html.length - 1));
+                        return false;
+                    }
+                    
+                    // Clear
+                    if ($this.hasClass('clear')) {
+                        var html = $write.val();
+                        
+                        $write.val("");
+                        return false;
+                    }
+                    
+                    // Special characters
+                    if ($this.hasClass('symbol')) character = $('span:visible', $this).html();
+                    if ($this.hasClass('space')) character = ' ';
+                    if ($this.hasClass('tab')) character = "\t";
+                    if ($this.hasClass('return')) character = "\n";
+                    
+                    // Uppercase letter
+                    if ($this.hasClass('uppercase')) character = character.toUpperCase();
+                    
+                    // Remove shift once a key is clicked.
+                    if (shift === true) {
+                        $('.symbol span').toggle();
+                        if (capslock === false) $('.letter').toggleClass('uppercase');
+                        
+                        shift = false;
+                    }
+                     // Add the character
+                     //$write.val($write.val() + character);
+
+                    var inputValue = $write.val();
+                    textBefore = inputValue.substring(0,  cursorPos);
+                    textAfter  = inputValue.substring(cursorPos, inputValue.length);
+
+                    $write.val(textBefore + character + textAfter);
+                    cursorPos += character.length;
+                });
+
+            }});
+        }
+
+        function SubmitDetails(){
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            idleTime = 0;
+            //Check for Input Field
+            if($.trim($("#NameField").val()) == "" || $.trim($("#NRICField").val()) == "" || $.trim($("#dropDownCountries").val()) == "")
+            {
+
+                console.log("Foreigner_Input_Field_Error wrong");
+                $("#Foreigner_Input_Field_Error").html("* Please fill in all fields.");
+                $("#Foreigner_Input_Field_Error").fadeIn();
+
+                setTimeout(function() {
+                    $("#Foreigner_Input_Field_Error").fadeOut();
+                }, 5000); 
+            }else{
+                console.log("correct fields");
+                
+                /*========================= CHECK DUPLICATE NRIC ===========================================================================================*/
+                ajax_voucher_checkExistCustomer("game.do", "formType=checkExistCustomer&name=" + $.trim($("#NRICField").val()));
+            }
+        }
+
+        function SubmitReceiptDetails(){
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            idleTime = 0;
+			
+			$("#GamePlayCodeField").val("");
+            $("#GamePlayCodeField").focus();
+
+            //Check for Input Field
+
+            if (($.trim($("#dropDownShops_1").val()) == "" || $.trim($("#ReceiptField_1").val()) == "") &&  ($.trim($("#dropDownShops_2").val()) == "" || $.trim($("#ReceiptField_2").val()) == ""))
+            {
+
+                console.log("Receipt_Field_Error wrong");
+                $("#ReceiptInput_Field_Error").html("* Please fill in appropriate fields.");
+                $("#ReceiptInput_Field_Error").fadeIn();
+
+                setTimeout(function() {
+                    $("#ReceiptInput_Field_Error").fadeOut();
+                }, 5000); 
+
+            }else{
+
+                //Check if American Card is used: Min spending of SGD$120 else will be min spending of SGD$150
+
+                //AmexCard User
+                if ($('#AmaxCardField').is(':checked')){
+
+                    //Check that the input value field is SGD$120 or more else, inform that minimum spending is SGD120
+                    if (($("#ReceiptField_1").val()) >= 120 || ($("#ReceiptField_2").val()) >= 120 || ((parseInt($("#ReceiptField_1").val())) + (parseInt($("#ReceiptField_2").val())))>=120)
+                    {
+
+                        //Condition Passed
+                        console.log("Amex user and spent more than SGD120");
+
+                        $('#VivoCity_Receipt_Details').fadeOut({ duration: 1200, queue: false });
+                        $('#VivoCity_Receipt_Details').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                        
+                        $('#JackpotGameInstructions').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+            
+                        $('#JackpotGameInstructions').fadeIn({ duration: 1200, queue: false, complete: function(){
+         
+                            setTimeout(function() {
+                                
+                                $('#JackpotGameInstructions').fadeOut({ duration: 1200, queue: false });
+                                $('#JackpotGameInstructions').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                
+                                // $('#VivoCity_JackPotGamePage').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                $('#VivoCity_JackPotGamePage').fadeIn({ duration: 1200, queue: false});
+
+                                /*================= JACKPOT GAME: DRAW JACKPOT GAME CANVAS AND SHOW ON GAMEPAGE LOAD===================================================================================================*/
+                                $("#GamePlayCodeField").focus();
+                                JackPotSlotGame(); 
+
+                            }, 10000); 
+                        }});
+                    } else{
+                        //inform that minimum spending is SGD120
+
+                        $('#VivoCity_Receipt_Details').fadeOut({ duration: 1200, queue: false });
+                        $('#VivoCity_Min_Spending_120').fadeIn({ duration: 1200, queue: false });
+
+                        setTimeout(function() {
+
+                            $("#ReceiptField_1").val("");
+                            $("#ReceiptField_2").val("");
+
+                            $("#dropDownShops_1").val("");
+                            $("#dropDownShops_2").val("");
+
+                            $('#VivoCity_Min_Spending_120').fadeOut({ duration: 1200, queue: false });
+                            $('#VivoCity_Receipt_Details').fadeIn({ duration: 1200, queue: false });
+                        }, 6000); 
+                    }
+
+                }else if((!$('#AmaxCardField:checked').length)){
+                    
+                    //Check that the input value field is SGD$150 or more else, inform that minimum spending is SGD150
+                    if (($("#ReceiptField_1").val()) >= 150 || ($("#ReceiptField_2").val()) >= 150 || ((parseInt($("#ReceiptField_1").val())) + (parseInt($("#ReceiptField_2").val())))>=150)
+                    {
+
+                        //Condition Passed
+                        console.log("Non-Amex user and spent more than SGD150");
+
+                        $('#VivoCity_Receipt_Details').fadeOut({ duration: 1200, queue: false });
+                        $('#VivoCity_Receipt_Details').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                        
+                        $('#JackpotGameInstructions').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+            
+                        $('#JackpotGameInstructions').fadeIn({ duration: 1200, queue: false, complete: function(){
+
+
+                            setTimer = setInterval(function() {
+
+                                Notification_Timer --;
+
+                                $("#Game_Notification_timer").html(Notification_Timer);
+
+                                if (Notification_Timer ==0){
+
+                                    $("#Game_Notification_timer").html("SPIN!");
+                                    $('#JackpotGameInstructions').fadeOut({ duration: 1200, queue: false });
+                                    $('#JackpotGameInstructions').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                    
+                                    // $('#VivoCity_JackPotGamePage').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                    $('#VivoCity_JackPotGamePage').fadeIn({ duration: 1200, queue: false});
+
+                                    /*================= JACKPOT GAME: DRAW JACKPOT GAME CANVAS AND SHOW ON GAMEPAGE LOAD===================================================================================================*/
+                                    $("#GamePlayCodeField").focus();
+                                    JackPotSlotGame(); 
+
+
+                                } else if (Notification_Timer < 0){
+                                    clearInterval(setTimer);
+                                }
+                            },1000);
+         
+                            /*setTimeout(function() {
+                                
+                                $('#JackpotGameInstructions').fadeOut({ duration: 1200, queue: false });
+                                $('#JackpotGameInstructions').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                
+                                // $('#VivoCity_JackPotGamePage').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+                                $('#VivoCity_JackPotGamePage').fadeIn({ duration: 1200, queue: false});
+
+                                /*================= JACKPOT GAME: DRAW JACKPOT GAME CANVAS AND SHOW ON GAMEPAGE LOAD===================================================================================================*/
+                            /*    $("#GamePlayCodeField").focus();
+                                JackPotSlotGame(); 
+
+                            }, 5000); */
+                        }});
+                    } else{
+                        //inform that minimum spending is SGD150
+
+                        $('#VivoCity_Receipt_Details').fadeOut({ duration: 1200, queue: false });
+                        $('#VivoCity_Min_Spending_150').fadeIn({ duration: 1200, queue: false });
+
+                        setTimeout(function() {
+
+                            $("#ReceiptField_1").val("");
+                            $("#ReceiptField_2").val("");
+                            $("#dropDownShops_1").val("");
+                            $("#dropDownShops_2").val("");
+
+                            $('#VivoCity_Min_Spending_150').fadeOut({ duration: 1200, queue: false });
+                            $('#VivoCity_Receipt_Details').fadeIn({ duration: 1200, queue: false });
+                        }, 6000); 
+
+                    }
+                }
+            }
+        }
+
+        function PlayMemory(){
+
+            $("#load_VivoCityMemoryGame").load("VivoCity_Memory.html");
+            $("#VivoCity_FullyRedeemed").fadeOut(function() {
+                $("#load_VivoCityMemoryGame").fadeIn();
+            })
+        }
+     </script>
+     <script type="text/javascript" src="javascript/JackPot.js"></script>
+    </html>

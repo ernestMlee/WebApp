@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- meta -->
+  	<meta charset="UTF-8">
+  	<meta name="viewport" author ="ErnestLee" content="width=device-width, initial-scale=0.4, maximum-scale=0.4">
+
+  	<!-- title -->
+  	<title>VivoCity_Memory_Game</title>
+
+    <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    @font-face {
+      font-family: "Gothic";
+      src: url("lib/fonts/GOTHIC.TTF");
+    }
+
+    @font-face {
+      font-family: "GothicBold";
+      src: url("lib/fonts/GOTHICB.TTF");
+    }
+    .ResetMemory
+    {
+        position: absolute;
+        width:1920px;
+        height:90px;
+        left:0px;
+        top:0px;
+        z-index: 100;
+        outline: 0;
+        border:0;
+        background: transparent;
+    }
+    </style>
+
+  	<!-- css -->
+  	<link rel="stylesheet" href="css/memory.css">
+    <!-- Link JAVASCRIPT TO GAME -->
+  	<script src="javascript/memory.js"></script>
+  </head>
+
+ 
+  <body oncontextmenu="return false">
+    <audio id="YouWinAudio" src="lib/audio/GameWin.mp3"></audio>
+    <audio id="TryAgainAudio" src="lib/audio/TryAgain.mp3"></audio>
+    <audio id="TimeUpAudio" src="lib/audio/WarningTime.mp3"></audio>
+    
+    <div id="my-memory-game" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=1; top:0px; left:0px;">
+
+      <div id="Memory_Game" style="position:absolute;"></div>
+
+      <!-- <img id="MemoryGame" src="lib/image/MemoryGame/MemoryBackground.png" style="position:absolute; left:0px; top:0px; width: 1920px; height:1080px;" /> -->
+
+      <button class = "ResetMemory" onclick="Reset()"></button>
+
+      <!-- Div Tag for Game CountDownTimer -->
+      <div id="GO" style="position:absolute; z-index:99; left:840px; width:1920px; top: 30px; text-align:center;display: none;"><img id="MemoryGame" src="lib/image/MemoryGame/GO.png"/></div>  
+      
+      <!-- Div Tag for Game CountDownTimer -->
+      <div id="memoryGame_timer" style="position:absolute; z-index:99; width:1920px; top: 0px; left:840px; font-size:150.222px; text-align:center; color:white; display: none; color: #ffd700; font-family: "GothicBold";">20</div>  
+
+    </div>
+
+    <div id="congratulations" align= "center" style ="position:absolute; width:1920px; height:1800px; background-repeat: no-repeat; display: none; z-index=100; top:0px; left:0px;">
+
+      <!-- <div id="MemoryCongrats" style="position:absolute;"></div> -->
+
+      <img id="MemoryCongrats" src="lib/image/MemoryGame/congrats.png" style="position:absolute; left:0px; top:0px; width: 1080px; height:1920px;"/>
+
+      <button class = "ResetMemory" onclick="Reset()"></button>
+    </div>
+
+  	<div id="game_over" align= "center" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; display: none; z-index=100; top:0px; left:0px;">
+
+      <!-- <div id="MemoryGameOver" style="position:absolute;"></div> -->
+
+      <img id="MemoryGameOver" src="lib/image/MemoryGame/gameOver.png" style="position:absolute; left:0px; top:0px; width: 1080px; height:1920px;"/>
+
+      <button class = "ResetMemory" onclick="Reset()"></button>
+    </div>
+
+  </body>
+
+  <script>
+
+  var isShowWin = false;
+  
+ 
+  $(window).ready(function () {
+
+    (function () {
+      var myMem = new Memory({
+        wrapperID: "my-memory-game",
+        cards: [
+          {
+            id: 1,
+            img: "lib/image/MemoryGame/Card/Card_01.png"
+          },
+          {
+            id: 2,
+            img: "lib/image/MemoryGame/Card/Card_02.png"
+          },
+          {
+            id: 3,
+            img: "lib/image/MemoryGame/Card/Card_03.png"
+          },
+          {
+            id: 4,
+            img: "lib/image/MemoryGame/Card/Card_04.png"
+          },
+          {
+            id: 5,
+            img: "lib/image/MemoryGame/Card/Card_05.png"
+          },
+          {
+            id: 6,
+            img: "lib/image/MemoryGame/Card/Card_06.png"
+          }
+        ],
+        onGameStart: function () {
+          console.log("gamestarted"); 
+        },
+        onGameEnd: function () {
+    			if(isShowWin == false)
+    			{
+    				console.log("test1");
+    				isShowWin = true;
+            win();
+    			}
+        }
+      });
+    })();
+
+    $("#Memory_Game").jPlayer({
+        ready: function(){ 
+          $("#Memory_Game").jPlayer("setMedia", {
+                m4v: "lib/video/MemoryGame.mp4"
+           }).jPlayer("play");
+        }, 
+        swfPath: "javascript",
+        muted:true,
+        loop: true,
+        supplied: "webmv, ogv, m4v",
+        size: { width: 1921, height: 1080 }
+    });
+    $("#Memory_Game").show();
+
+    $("#MemoryCongrats").jPlayer({
+        ready: function(){ 
+          $("#MemoryCongrats").jPlayer("setMedia", {
+                m4v: "lib/video/congratulations.mp4"
+           }).jPlayer("play");
+        }, 
+        swfPath: "javascript",
+        muted:true,
+        loop: true,
+        supplied: "webmv, ogv, m4v",
+        size: { width: 1921, height: 1080 }
+    });
+    $("#MemoryCongrats").show();
+
+    $("#MemoryGameOver").jPlayer({
+        ready: function(){ 
+           $("#MemoryGameOver").jPlayer("setMedia", {
+                m4v: "lib/video/gameover.mp4"
+            }).jPlayer("play");
+        }, 
+        swfPath: "javascript",
+        muted:true,
+        loop: true,
+        supplied: "webmv, ogv, m4v",
+        size: { width: 1921, height: 1080 }
+    });
+    $("#MemoryGameOver").show();
+  })
+
+  function win() {
+
+    console.log("Game win");
+
+    document.getElementById("YouWinAudio").pause();
+    document.getElementById("YouWinAudio").currentTime = 0;
+    document.getElementById("YouWinAudio").play();
+	
+	  $('#memoryGame_timer').hide();
+
+    $('#congratulations').fadeIn(function() {
+
+      //Page to stay for 10 seconds before, page refreshes
+      setTimeout(function() {
+
+        location.reload();
+
+      }, 5000); 
+    });
+  }
+
+  function Reset(){
+
+    location.reload();
+  }
+  </script>
+</html>

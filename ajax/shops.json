@@ -1,0 +1,1384 @@
+{
+    "Shops": [
+    {
+        "ShopName": "7-Eleven",
+        "ShopID": "7-Eleven123",
+        "Shoplocation": "#02-31"
+    }, {
+        "ShopName": "8TartsNPastries",
+        "ShopID": "8TartsNPastries123",
+        "Shoplocation": "#B2-K4"
+    }, {
+        "ShopName": "A|X Armani Exchange",
+        "ShopID": "A|XArmaniExchange123",
+        "Shoplocation": "#01-202"
+    }, {
+        "ShopName": "Action City",
+        "ShopID": "ActionCity123",
+        "Shoplocation": "#02-38"
+    },  {
+        "ShopName": "Adonis",
+        "ShopID": "Adonis123",
+        "Shoplocation": "#02-228"
+    }, {
+        "ShopName": "Aeropostale",
+        "ShopID": "Aeropostale123",
+        "Shoplocation": "#B1-05"
+    }, {
+        "ShopName": "Aibi",
+        "ShopID": "Aibi123",
+        "Shoplocation": "#02-160"
+    }, {
+        "ShopName": "Aldo",
+        "ShopID": "Aldo123",
+        "Shoplocation": "#01-192"
+    }, {
+        "ShopName": "Alice Claudine",
+        "ShopID": "AliceClaudine123",
+        "Shoplocation": "#02-K2"
+    }, {
+        "ShopName": "American Eagle Outfitters",
+        "ShopID": "AmericanEagleOutfitters123",
+        "Shoplocation": "#B1-06"
+    }, {
+        "ShopName": "Analogue+",
+        "ShopID": "Analogue+123",
+        "Shoplocation": "#02-98"
+    }, {
+        "ShopName": "Ante",
+        "ShopID": "Ante123",
+        "Shoplocation": "#02-K5"
+    }, {
+        "ShopName": "Aone Claypot House",
+        "ShopID": "AoneClaypotHouse123",
+        "Shoplocation": "#B2-25"
+    }, {
+        "ShopName": "Apgujeong Hair Studio",
+        "ShopID": "ApgujeongHairStudio123",
+        "Shoplocation": "#02-216"
+    }, {
+        "ShopName": "Artisan Boulangerie Co.",
+        "ShopID": "ArtisanBoulangerieCo.123",
+        "Shoplocation": "#01-163"
+    }, {
+        "ShopName": "Asics",
+        "ShopID": "Asics123",
+        "Shoplocation": "#02-70"
+    }, {
+        "ShopName": "Auntie Anne's",
+        "ShopID": "AuntieAnne's123",
+        "Shoplocation": "#B2-K6"
+    }, {
+        "ShopName": "Avenue Kids",
+        "ShopID": "AvenueKids123",
+        "Shoplocation": "#02-104"
+    }, {
+        "ShopName": "Awfully Chocolate",
+        "ShopID": "AwfullyChocolate123",
+        "Shoplocation": "#01-156"
+    }, {
+        "ShopName": "Bakerzin",
+        "ShopID": "Bakerzin123",
+        "Shoplocation": "#01-207"
+    }, {
+        "ShopName": "Barrio By Mex Out",
+        "ShopID": "BarrioByMexOut123",
+        "Shoplocation": "#01-116"
+    }, {
+        "ShopName": "Bata",
+        "ShopID": "Bata123",
+        "Shoplocation": "#02-206"
+    }, {
+        "ShopName": "Beard papa's",
+        "ShopID": "Beardpapa's123",
+        "Shoplocation": "#B2-K13"
+    }, {
+        "ShopName": "Beauty By Nature",
+        "ShopID": "BeautyByNature123",
+        "Shoplocation": "#01-06"
+    }, { 
+        "ShopName": "Bebe",
+        "ShopID": "Bebe123",
+        "Shoplocation": "#01-134"
+    }, { 
+        "ShopName": "Ben & Jerry",
+        "ShopID": "Ben&Jerry123",
+        "Shoplocation": "#02-135"
+    }, { 
+        "ShopName": "Benjamin Barker",
+        "ShopID": "BenjaminBarker123",
+        "Shoplocation": "#02-08"
+    }, { 
+        "ShopName": "Bering",
+        "ShopID": "Bering123",
+        "Shoplocation": "#01-K28"
+    }, { 
+        "ShopName": "Bershka",
+        "ShopID": "Bershka123",
+        "Shoplocation": "#01-58"
+    }, { 
+        "ShopName": "BestDenki",
+        "ShopID": "BestDenki123",
+        "Shoplocation": "#02-07"
+    }, { 
+        "ShopName": "BetterVision",
+        "ShopID": "BetteVision123",
+        "Shoplocation": "#B2-04"
+    }, { 
+        "ShopName": "Bimba Y Lola",
+        "ShopID": "BimbaYLola123",
+        "Shoplocation": "#01-140"
+    }, { 
+        "ShopName": "Birkenstock",
+        "ShopID": "Birkenstock123",
+        "Shoplocation": "#01-95"
+    }, { 
+        "ShopName": "Black Society",
+        "ShopID": "BlackSociety123",
+        "Shoplocation": "#02-156"
+    }, { 
+        "ShopName": "Bloomb",
+        "ShopID": "Bloomb123",
+        "Shoplocation": "#02-78"
+    }, { 
+        "ShopName": "Boost Juice",
+        "ShopID": "BoostJuice123",
+        "Shoplocation": "#02-134"
+    }, { 
+        "ShopName": "Bornga",
+        "ShopID": "Bornga123",
+        "Shoplocation": "#02-123"
+    }, { 
+        "ShopName": "BreadTalk & ToastBox",
+        "ShopID": "BreadTalk&ToastBox123",
+        "Shoplocation": "#B2-34"
+    }, { 
+        "ShopName": "Brozeit German Restaurant And Bar",
+        "ShopID": "BrozeitGermanRestaurantAndBar123",
+        "Shoplocation": "#01-149"
+    }, { 
+        "ShopName": "Burger King",
+        "ShopID": "BurgerKing123",
+        "Shoplocation": "#02-80"
+    }, { 
+        "ShopName": "Bysi",
+        "ShopID": "Bysi123",
+        "Shoplocation": "#02-237"
+    }, { 
+        "ShopName": "C Square Of City Chain",
+        "ShopID": "CSquareOfCityChain123",
+        "Shoplocation": "#02-12"
+    }, { 
+        "ShopName": "C.E.D.S.SportWear",
+        "ShopID": "C.E.D.S.SportWear123",
+        "Shoplocation": "#02-62"
+    }, { 
+        "ShopName": "Caffebene",
+        "ShopID": "Caffebene123",
+        "Shoplocation": "#02-150"
+    }, { 
+        "ShopName": "Calvin Klein Performance",
+        "ShopID": "CalvinKleinPerformance123",
+        "Shoplocation": "#02-25"
+    }, { 
+        "ShopName": "Calvin Klein Underwear",
+        "ShopID": "CalvinKleinUnderwear123",
+        "Shoplocation": "#01-119"
+    }, { 
+        "ShopName": "Calvin Klein Watches + Jewellery",
+        "ShopID": "CalvinKleinWatches+Jewellery123",
+        "Shoplocation": "#01-K30"
+    }, { 
+        "ShopName": "Camper",
+        "ShopID": "Camper123",
+        "Shoplocation": "#01-50"
+    }, { 
+        "ShopName": "Candy Empire",
+        "ShopID": "CandyEmpire123",
+        "Shoplocation": "#B2-32"
+    }, { 
+        "ShopName": "Candylicious",
+        "ShopID": "Candylicious123",
+        "Shoplocation": "#02-41"
+    }, { 
+        "ShopName": "Carl's Junior",
+        "ShopID": "Carl'sJunior123",
+        "Shoplocation": "#02-50"
+    }, { 
+        "ShopName": "Casio G-Factory",
+        "ShopID": "CasioG-Factory123",
+        "Shoplocation": "#02-61"
+    }, { 
+        "ShopName": "Central Hong Kong Cafe",
+        "ShopID": "CentralHongKongCafe123",
+        "Shoplocation": "#B2-13"
+    }, { 
+        "ShopName": "Challenger",
+        "ShopID": "Challenger123",
+        "Shoplocation": "#02-34"
+    }, { 
+        "ShopName": "Chanel",
+        "ShopID": "Chanel123",
+        "Shoplocation": "#01-14"
+    }, { 
+        "ShopName": "Charcoal Thai",
+        "ShopID": "CharcoalThai123",
+        "Shoplocation": "#03-07"
+    }, { 
+        "ShopName": "Charles & Keith",
+        "ShopID": "Charles&Keith123",
+        "Shoplocation": "#02-184"
+    }, { 
+        "ShopName": "Chomel",
+        "ShopID": "Chomel123",
+        "Shoplocation": "#02-199"
+    }, { 
+        "ShopName": "Churro 101",
+        "ShopID": "Churro101123",
+        "Shoplocation": "#B2-K16"
+    }, { 
+        "ShopName": "Citigems",
+        "ShopID": "Citigems123",
+        "Shoplocation": "#B2-03"
+    }, { 
+        "ShopName": "Citizen",
+        "ShopID": "Citizen123",
+        "Shoplocation": "#02-K3"
+    }, { 
+        "ShopName": "City Chain",
+        "ShopID": "CityChain123",
+        "Shoplocation": "#B2-02"
+    },  { 
+        "ShopName": "Click-Photo Ideas",
+        "ShopID": "Click-PhotoIdeas123",
+        "Shoplocation": "#B2-05"
+    }, { 
+        "ShopName": "Clovers",
+        "ShopID": "Clovers123",
+        "Shoplocation": "#02-235"
+    }, { 
+        "ShopName": "Coach",
+        "ShopID": "Coach123",
+        "Shoplocation": "#01-194"
+    }, { 
+        "ShopName": "Cold Stone Creamery",
+        "ShopID": "ColdStoneCreamery123",
+        "Shoplocation": "#02-K1"
+    }, { 
+        "ShopName": "Converse",
+        "ShopID": "Converse123",
+        "Shoplocation": "#02-59"
+    }, { 
+        "ShopName": "Cookie & Monkey Kids' Lounge",
+        "ShopID": "Cookie&MonkeyKids'Lounge123",
+        "Shoplocation": "#02-105"
+    }, { 
+        "ShopName": "Costa Coffee",
+        "ShopID": "CostaCoffee123",
+        "Shoplocation": "#01-100"
+    }, { 
+        "ShopName": "Cotton On",
+        "ShopID": "CottonOn123",
+        "Shoplocation": "#02-40"
+    }, { 
+        "ShopName": "Cotton On Kids",
+        "ShopID": "CottonOnKids123",
+        "Shoplocation": "#02-88"
+    }, { 
+        "ShopName": "Crabtree & Evelyn",
+        "ShopID": "Crabtree&Evelyn123",
+        "Shoplocation": "#01-09"
+    }, { 
+        "ShopName": "Crave",
+        "ShopID": "Crave123",
+        "Shoplocation": "#B2-K23"
+    }, { 
+        "ShopName": "Crocs",
+        "ShopID": "Crocs123",
+        "Shoplocation": "#01-64"
+    }, { 
+        "ShopName": "Crumpler",
+        "ShopID": "Crumpler123",
+        "Shoplocation": "#01-94"
+    }, { 
+        "ShopName": "Crystal Jade Dining In",
+        "ShopID": "CrystalJadeDiningIn123",
+        "Shoplocation": "#01-112"
+    }, { 
+        "ShopName": "Crystal Jade Jiang Nan",
+        "ShopID": "CrystalJadeJiangNan123",
+        "Shoplocation": "#01-52"
+    }, { 
+        "ShopName": "Daiso",
+        "ShopID": "Daiso123",
+        "Shoplocation": "#03-06"
+    }, { 
+        "ShopName": "Dancing Crab",
+        "ShopID": "DancingCrab123",
+        "Shoplocation": "#03-10"
+    }, { 
+        "ShopName": "Daniel Wellington",
+        "ShopID": "DanielWellington123",
+        "Shoplocation": "#01-K31"
+    }, { 
+        "ShopName": "Danzyl",
+        "ShopID": "Danzyl123",
+        "Shoplocation": "#02-82"
+    }, { 
+        "ShopName": "DC Comics Super Heroes",
+        "ShopID": "DCComicsSuperHeroes123",
+        "Shoplocation": "#02-57"
+    }, { 
+        "ShopName": "Dejewel Galleria",
+        "ShopID": "DejewelGalleria123",
+        "Shoplocation": "#01-206"
+    }, { 
+        "ShopName": "Dental On the Bay",
+        "ShopID": "DentalOnTheBay123",
+        "Shoplocation": "#02-230"
+    }, { 
+        "ShopName": "Dermacare Medispa",
+        "ShopID": "DermacareMedispa123",
+        "Shoplocation": "#02-159"
+    }, { 
+        "ShopName": "Desigual",
+        "ShopID": "Desigual123",
+        "Shoplocation": "#01-185"
+    }, { 
+        "ShopName": "Dian Xiao Er",
+        "ShopID": "DianXiaoEr123",
+        "Shoplocation": "#02-138"
+    }, { 
+        "ShopName": "DKNY",
+        "ShopID": "DKNY123",
+        "Shoplocation": "#01-202"
+    }, { 
+        "ShopName": "Don Your Personal Pie Club",
+        "ShopID": "DonYourPersonalPieClub123",
+        "Shoplocation": "#B2-K3"
+    }, { 
+        "ShopName": "Dryclyn Express",
+        "ShopID": "DryclynExpress123",
+        "Shoplocation": "#B2-22A"
+    }, { 
+        "ShopName": "Earle Swensen's",
+        "ShopID": "EarleSwensen's123",
+        "Shoplocation": "#02-117"
+    }, { 
+        "ShopName": "Ecco",
+        "ShopID": "Ecco123",
+        "Shoplocation": "#01-120"
+    }, { 
+        "ShopName": "Egg*",
+        "ShopID": "Egg*123",
+        "Shoplocation": "#02-K4"
+    }, { 
+        "ShopName": "Erabelle Prestige",
+        "ShopID": "ErabellePrestige123",
+        "Shoplocation": "#02-01"
+    }, { 
+        "ShopName": "Esboudoir",
+        "ShopID": "Esboudoir123",
+        "Shoplocation": "#02-226"
+    }, { 
+        "ShopName": "Esprit",
+        "ShopID": "Esprit123",
+        "Shoplocation": "#01-73"
+    }, { 
+        "ShopName": "Etude House",
+        "ShopID": "EtudeHouse123",
+        "Shoplocation": "#B1-03"
+    }, { 
+        "ShopName": "Eu Yan Sang",
+        "ShopID": "EuYanSang123",
+        "Shoplocation": "#B2-11"
+    }, { 
+        "ShopName": "Fabindia",
+        "ShopID": "Fabindia123",
+        "Shoplocation": "#01-141"
+    }, { 
+        "ShopName": "Factorie",
+        "ShopID": "Factorie123",
+        "Shoplocation": "#02-48"
+    }, { 
+        "ShopName": "Famous Amos",
+        "ShopID": "FamousAmos123",
+        "Shoplocation": "#B2-K11"
+    }, { 
+        "ShopName": "Fancl",
+        "ShopID": "Fancl123",
+        "Shoplocation": "#01-K1"
+    }, { 
+        "ShopName": "Feb-29",
+        "ShopID": "Feb-29123",
+        "Shoplocation": "#02-172"
+    }, { 
+        "ShopName": "Fish & Co.",
+        "ShopID": "Fish&Co.123",
+        "Shoplocation": "#02-116"
+    }, { 
+        "ShopName": "Food Republic",
+        "ShopID": "FoodRepublic123",
+        "Shoplocation": "#03-01"
+    }, { 
+        "ShopName": "Forever21",
+        "ShopID": "Forever21123",
+        "Shoplocation": "#01-71"
+    }, { 
+        "ShopName": "Forever Flawless",
+        "ShopID": "ForeverFlawless21123",
+        "Shoplocation": "#01-08"
+    }, { 
+        "ShopName": "Forever New",
+        "ShopID": "ForeverNew21123",
+        "Shoplocation": "#01-29"
+    }, { 
+        "ShopName": "Fox Kids & Baby",
+        "ShopID": "FoxKids&Baby21123",
+        "Shoplocation": "#02-83"
+    }, { 
+        "ShopName": "Fruit Paradise",
+        "ShopID": "FruitParadise21123",
+        "Shoplocation": "#01-59"
+    },  { 
+        "ShopName": "Furla",
+        "ShopID": "Furla21123",
+        "Shoplocation": "#01-191"
+    }, { 
+        "ShopName": "G2000",
+        "ShopID": "G2000123",
+        "Shoplocation": "#02-239"
+    }, { 
+        "ShopName": "GadgetPlus",
+        "ShopID": "GadgetPlus123",
+        "Shoplocation": "#02-216A"
+    }, { 
+        "ShopName": "Gap",
+        "ShopID": "Gap123",
+        "Shoplocation": "#01-130"
+    }, { 
+        "ShopName": "Garrett Popcorn",
+        "ShopID": "GarrettPopcorn123",
+        "Shoplocation": "#01-159"
+    }, { 
+        "ShopName": "Geox",
+        "ShopID": "Geox123",
+        "Shoplocation": "#01-125"
+    },  { 
+        "ShopName": "GG<5",
+        "ShopID": "GG<5123",
+        "Shoplocation": "#02-201"
+    }, { 
+        "ShopName": "Giordano",
+        "ShopID": "Giordano123",
+        "Shoplocation": "#02-231"
+    }, { 
+        "ShopName": "Giordano Ladies",
+        "ShopID": "GiordanoLadies123",
+        "Shoplocation": "#02-191"
+    }, { 
+        "ShopName": "GNC",
+        "ShopID": "GNC123",
+        "Shoplocation": "#B2-18"
+    }, { 
+        "ShopName": "Godiva Belgium 1926",
+        "ShopID": "GodivaBelgium1926123",
+        "Shoplocation": "#02-05"
+    }, { 
+        "ShopName": "Golden Village",
+        "ShopID": "GoldenVillage123",
+        "Shoplocation": "#02-30/03-04"
+    }, { 
+        "ShopName": "GoldHeart",
+        "ShopID": "GoldHeart123",
+        "Shoplocation": "#01-79"
+    }, { 
+        "ShopName": "Gong Cha",
+        "ShopID": "GongCha123",
+        "Shoplocation": "#01-111"
+    }, { 
+        "ShopName": "Guess Accessories & Shoes",
+        "ShopID": "GuessAccessories&Shoes123",
+        "Shoplocation": "#01-186"
+    }, { 
+        "ShopName": "H&M",
+        "ShopID": "H&M123",
+        "Shoplocation": "#01-18"
+    }, { 
+        "ShopName": "Haidilao Hotpot",
+        "ShopID": "HaidilaoHotpot123",
+        "Shoplocation": "#03-09"
+    }, { 
+        "ShopName": "Hodo Loco",
+        "ShopID": "HodoLoco123",
+        "Shoplocation": "#B2-K10"
+    }, { 
+        "ShopName": "Holland & Barrett",
+        "ShopID": "Holland&Barrett123",
+        "Shoplocation": "#B2-06"
+    }, { 
+        "ShopName": "Honeymoon Dessert",
+        "ShopID": "HoneymoonDessert123",
+        "Shoplocation": "#01-93"
+    }, { 
+        "ShopName": "Hong Kong Dessert",
+        "ShopID": "HongKongDessert123",
+        "Shoplocation": "#B2-K17"
+    }, { 
+        "ShopName": "Hong Kong Kim Gary Restaurant",
+        "ShopID": "HongKongKimGaryRestaurant123",
+        "Shoplocation": "#02-128"
+    }, { 
+        "ShopName": "Hush Puppies",
+        "ShopID": "HushPuppies123",
+        "Shoplocation": "#02-65"
+    }, { 
+        "ShopName": "Ichiban Boshi",
+        "ShopID": "IchibanBoshi123",
+        "Shoplocation": "#B2-07"
+    }, { 
+        "ShopName": "In:Famous",
+        "ShopID": "In:Famous123",
+        "Shoplocation": "#02-208"
+    }, { 
+        "ShopName": "Independent Market",
+        "ShopID": "IndependentMarket123",
+        "Shoplocation": "#02-63"
+    }, { 
+        "ShopName": "Innisfree",
+        "ShopID": "Innisfree123",
+        "Shoplocation": "#B1-02"
+    }, { 
+        "ShopName": "Integrated Eyecare Centre",
+        "ShopID": "IntegratedEyecareCentre123",
+        "Shoplocation": "#01-143"
+    }, { 
+        "ShopName": "Iroo",
+        "ShopID": "Iroo123",
+        "Shoplocation": "#01-179"
+    }, { 
+        "ShopName": "Irvins Salted Egg", 
+        "ShopID": "IrvinsSaltedEgg123",
+        "Shoplocation": "#B2-K25"
+    }, { 
+        "ShopName": "iStudio", 
+        "ShopID": "iStudio123",
+        "Shoplocation": "#02-11"
+    }, { 
+        "ShopName": "JWest", 
+        "ShopID": "JWest123",
+        "Shoplocation": "#01-86"
+    }, { 
+        "ShopName": "Jamie's Italian", 
+        "ShopID": "Jamie'sItalian123",
+        "Shoplocation": "#01-165"
+    }, { 
+        "ShopName": "Japanese Gourmet Town", 
+        "ShopID": "JapaneseGourmetTown123",
+        "Shoplocation": "#01-157"
+    }, { 
+        "ShopName": "Jean Yip Hair & Hair Spa", 
+        "ShopID": "JeanYipHair&HairSpa123",
+        "Shoplocation": "#02-204A"
+    }, { 
+        "ShopName": "Jelly Bunny", 
+        "ShopID": "JellyBunny123",
+        "Shoplocation": "#02-200"
+    }, { 
+        "ShopName": "Jia Xiang Sarawak Kuching Kolo Mee", 
+        "ShopID": "JiaXiangSarawakKuchingKoloMee123",
+        "Shoplocation": "#B2-38"
+    }, { 
+        "ShopName": "Joop", 
+        "ShopID": "Joop123",
+        "Shoplocation": "#02-233"
+    }, { 
+        "ShopName": "Jpot", 
+        "ShopID": "Jpot123",
+        "Shoplocation": "#01-53"
+    }, { 
+        "ShopName": "Kate Spade", 
+        "ShopID": "KateSpade123",
+        "Shoplocation": "#01-127"
+    }, { 
+        "ShopName": "Kenko Reflexology & Spa", 
+        "ShopID": "KenkoReflexology&Spa123",
+        "Shoplocation": "#02-209"
+    }, { 
+        "ShopName": "Kidstyle", 
+        "ShopID": "Kidstyle123",
+        "Shoplocation": "#02-77"
+    }, { 
+        "ShopName": "Kiehl's", 
+        "ShopID": "Kiehl's123",
+        "Shoplocation": "#01-11"
+    }, { 
+        "ShopName": "Kipling", 
+        "ShopID": "Kipling123",
+        "Shoplocation": "#01-96"
+    }, { 
+        "ShopName": "Koi The", 
+        "ShopID": "KoiThe123",
+        "Shoplocation": "#B2-06B"
+    }, { 
+        "ShopName": "Kopitiam", 
+        "ShopID": "Kopitiam123",
+        "Shoplocation": "#B2-39"
+    }, { 
+        "ShopName": "Krispy Kreme", 
+        "ShopID": "KrispyKreme123",
+        "Shoplocation": "#B2-K2"
+    }, { 
+        "ShopName": "L'occitane", 
+        "ShopID": "L'occitane123",
+        "Shoplocation": "#01-10"
+    }, { 
+        "ShopName": "La Senza", 
+        "ShopID": "LaSenza123",
+        "Shoplocation": "#01-184"
+    }, { 
+        "ShopName": "Lab Series", 
+        "ShopID": "LabSeries123",
+        "Shoplocation": "#B1-08"
+    }, { 
+        "ShopName": "Lacoco Hair Salon", 
+        "ShopID": "LacocoHairSalon123",
+        "Shoplocation": "#02-170"
+    }, { 
+        "ShopName": "Lacoste", 
+        "ShopID": "Lacoste123",
+        "Shoplocation": "#01-135"
+    }, { 
+        "ShopName": "Lamy", 
+        "ShopID": "Lamy123",
+        "Shoplocation": "#01-K3"
+    }, { 
+        "ShopName": "Le Coq Sportif", 
+        "ShopID": "LeCoqSportif123",
+        "Shoplocation": "#02-56"
+    }, { 
+        "ShopName": "Le Hall Of Fame", 
+        "ShopID": "LeHallOfFame123",
+        "Shoplocation": "#02-19"
+    }, { 
+        "ShopName": "Lego", 
+        "ShopID": "Lego123",
+        "Shoplocation": "#02-90"
+    }, { 
+        "ShopName": "Lenu Chef Wai's Noodle Bar", 
+        "ShopID": "LenuChefWai'sNoodleBar123",
+        "Shoplocation": "#02-91"
+    }, { 
+        "ShopName": "Levis", 
+        "ShopID": "Levis123",
+        "Shoplocation": "#01-67"
+    }, { 
+        "ShopName": "Llao Llao", 
+        "ShopID": "LlaoLlao123",
+        "Shoplocation": "#02-133"
+    }, { 
+        "ShopName": "London Fat Duck", 
+        "ShopID": "LondonFatDuck123",
+        "Shoplocation": "#B2-29"
+    }, { 
+        "ShopName": "Long John Silver's", 
+        "ShopID": "LongJohnSilver's123",
+        "Shoplocation": "#02-94"
+    }, { 
+        "ShopName": "Love & Co.", 
+        "ShopID": "Love&Co.123",
+        "Shoplocation": "#01-145"
+    }, { 
+        "ShopName": "Lovisa",  
+        "ShopID": "Lovisa123",
+        "Shoplocation": "#02-193"
+    }, { 
+        "ShopName": "M1", 
+        "ShopID": "M1123",
+        "Shoplocation": "#02-216B"
+    }, { 
+        "ShopName": "Madam Kwan's", 
+        "ShopID": "MadamKwan's123",
+        "Shoplocation": "#01-152"
+    }, { 
+        "ShopName": "Mak's Noodles", 
+        "ShopID": "Mak'sNoodles123",
+        "Shoplocation": "#B2-27"
+    }, { 
+        "ShopName": "Mango", 
+        "ShopID": "Mango123",
+        "Shoplocation": "#01-38"
+    }, { 
+        "ShopName": "Marche Movenpick", 
+        "ShopID": "MarcheMovenpick123",
+        "Shoplocation": "#03-14"
+    }, { 
+        "ShopName": "Marks & Spencer", 
+        "ShopID": "Marks&Spencer123",
+        "Shoplocation": "#01-46"
+    }, { 
+        "ShopName": "Maven", 
+        "ShopID": "Maven123",
+        "Shoplocation": "#01-01"
+    }, { 
+        "ShopName": "McDonald's", 
+        "ShopID": "McDonald's123",
+        "Shoplocation": "#B2-40"
+    }, { 
+        "ShopName": "MDS", 
+        "ShopID": "MDS123",
+        "Shoplocation": "#02-188"
+    }, { 
+        "ShopName": "Menya Musashi", 
+        "ShopID": "Menya Musashi123",
+        "Shoplocation": "#01-104"
+    }, { 
+        "ShopName": "Micabeauty Cosmetics", 
+        "ShopID": "MicabeautyCosmetics123",
+        "Shoplocation": "#02-162"
+    }, { 
+        "ShopName": "Michael Kors", 
+        "ShopID": "Michael Kors123",
+        "Shoplocation": "#01-21"
+    }, { 
+        "ShopName": "Milk & Honey", 
+        "ShopID": "Milk&Honey123",
+        "Shoplocation": "#B2-K8"
+    }, { 
+        "ShopName": "MiniMelts", 
+        "ShopID": "MiniMelts123",
+        "Shoplocation": "#B2-K7"
+    }, { 
+        "ShopName": "Modesto's", 
+        "ShopID": "Modesto's123",
+        "Shoplocation": "#03-11"
+    }, { 
+        "ShopName": "Mondo", 
+        "ShopID": "Mondo123",
+        "Shoplocation": "#02-203"
+    }, { 
+        "ShopName": "Monoyono", 
+        "ShopID": "Monoyono123",
+        "Shoplocation": "#01-92"
+    }, { 
+        "ShopName": "Monster Curry", 
+        "ShopID": "MonsterCurry123",
+        "Shoplocation": "#02-126"
+    }, { 
+        "ShopName": "MorganField's", 
+        "ShopID": "MorganField's123",
+        "Shoplocation": "#01-51A"
+    }, { 
+        "ShopName": "Mothercare", 
+        "ShopID": "Mothercare123",
+        "Shoplocation": "#02-79"
+    }, { 
+        "ShopName": "Mr Bean", 
+        "ShopID": "MrBean123",
+        "Shoplocation": "#B2-K9"
+    }, { 
+        "ShopName": "Mt Sapola", 
+        "ShopID": "MtSapola123",
+        "Shoplocation": "#01-K22"
+    }, { 
+        "ShopName": "Muji", 
+        "ShopID": "Muji123",
+        "Shoplocation": "#02-198"
+    }, { 
+        "ShopName": "Nam Kee Jb Handmade Pau", 
+        "ShopID": "NamKeeJbHandmadePau123",
+        "Shoplocation": "#B2-K17"
+    }, { 
+        "ShopName": "Nar*Whal", 
+        "ShopID": "Nar*Whal123",
+        "Shoplocation": "#02-107"
+    }, { 
+        "ShopName": "Natural Project", 
+        "ShopID": "NaturalProject123",
+        "Shoplocation": "#02-54"
+    }, { 
+        "ShopName": "Nature's Farm", 
+        "ShopID": "Nature'sFarm123",
+        "Shoplocation": "#B2-19"
+    }, { 
+        "ShopName": "Nautica & Sperry Top-Sider", 
+        "ShopID": "Nautica&SperryTop-Sider123",
+        "Shoplocation": "#01-87"
+    }, { 
+        "ShopName": "New Balance", 
+        "ShopID": "NewBalance123",
+        "Shoplocation": "#02-72"
+    }, { 
+        "ShopName": "News Innovation", 
+        "ShopID": "NewsInnovation123",
+        "Shoplocation": "#02-171"
+    }, { 
+        "ShopName": "Nike", 
+        "ShopID": "Nike123",
+        "Shoplocation": "#02-29A"
+    }, { 
+        "ShopName": "No Signboard Seafood Restaurant", 
+        "ShopID": "NoSignboardSeafoodRestaurant123",
+        "Shoplocation": "#03-02"
+    }, { 
+        "ShopName": "Nomination", 
+        "ShopID": "Nomination123",
+        "Shoplocation": "#01-K32"
+    }, { 
+        "ShopName": "Nyonya & Baba Peranankan Cuisine", 
+        "ShopID": "Nyonya&BabaPeranankanCuisine123",
+        "Shoplocation": "#01-54"
+    },  { 
+        "ShopName": "Old Chang Kee", 
+        "ShopID": "OldChangKee123",
+        "Shoplocation": "#B2-K21"
+    }, { 
+        "ShopName": "Onitsuka Tiger", 
+        "ShopID": "OnitsukaTiger123",
+        "Shoplocation": "#02-09"
+    }, { 
+        "ShopName": "Optical 88", 
+        "ShopID": "Optical88123",
+        "Shoplocation": "#02-204"
+    }, { 
+        "ShopName": "Oroton", 
+        "ShopID": "Oroton123",
+        "Shoplocation": "#01-190"
+    }, { 
+        "ShopName": "Osim", 
+        "ShopID": "Osim123",
+        "Shoplocation": "#01-51"
+    }, { 
+        "ShopName": "Owndays", 
+        "ShopID": "Owndays123",
+        "Shoplocation": "#01-50A"
+    }, { 
+        "ShopName": "Paik's Bibim", 
+        "ShopID": "Paik'sBibim123",
+        "Shoplocation": "#02-125"
+    },  { 
+        "ShopName": "Palette Nail", 
+        "ShopID": "PaletteNail123",
+        "Shoplocation": "#02-158"
+    }, { 
+        "ShopName": "Pandora", 
+        "ShopID": "Pandora123",
+        "Shoplocation": "#01-K29"
+    }, { 
+        "ShopName": "Paradise Dynasty", 
+        "ShopID": "ParadiseDynasty123",
+        "Shoplocation": "#03-08A"
+    }, { 
+        "ShopName": "Paris Miki", 
+        "ShopID": "ParisMiki123",
+        "Shoplocation": "#01-147"
+    }, { 
+        "ShopName": "Parker", 
+        "ShopID": "Parker123",
+        "Shoplocation": "#01-K4"
+    }, { 
+        "ShopName": "Pazzion", 
+        "ShopID": "Pazzion123",
+        "Shoplocation": "#02-190"
+    }, { 
+        "ShopName": "Pedro", 
+        "ShopID": "Pedro123",
+        "Shoplocation": "#02-186"
+    }, { 
+        "ShopName": "Petals By SF", 
+        "ShopID": "PetalsBySF123",
+        "Shoplocation": "#02-155"
+    }, { 
+        "ShopName": "Pezzo", 
+        "ShopID": "Pezzo123",
+        "Shoplocation": "#B2-K15"
+    }, { 
+        "ShopName": "Playe", 
+        "ShopID": "Playe123",
+        "Shoplocation": "#02-36"
+    }, { 
+        "ShopName": "Poulet", 
+        "ShopID": "Poulet123",
+        "Shoplocation": "#01-175"
+    }, { 
+        "ShopName": "Precious Thots", 
+        "ShopID": "PreciousThots123",
+        "Shoplocation": "#02-37"
+    }, { 
+        "ShopName": "Premier Football", 
+        "ShopID": "PremierFootball123",
+        "Shoplocation": "#02-110"
+    }, { 
+        "ShopName": "Prima Deli", 
+        "ShopID": "PrimaDeli123",
+        "Shoplocation": "#B2-K1"
+    }, { 
+        "ShopName": "Prime Auto Care", 
+        "ShopID": "PrimeAutoCare123",
+        "Shoplocation": "B2 Carpark Green Zone"
+    }, { 
+        "ShopName": "Pull & Bear", 
+        "ShopID": "Pull&NBear123",
+        "Shoplocation": "#01-28A"
+    }, { 
+        "ShopName": "Puma", 
+        "ShopID": "Puma123",
+        "Shoplocation": "#02-15"
+    }, { 
+        "ShopName": "Putien", 
+        "ShopID": "Putien123",
+        "Shoplocation": "#02-131"
+    }, { 
+        "ShopName": "QB House", 
+        "ShopID": "QBHouse123",
+        "Shoplocation": "#B2-22"
+    }, { 
+        "ShopName": "QB House Kids", 
+        "ShopID": "QBHouseKids123",
+        "Shoplocation": "#02-96"
+    }, { 
+        "ShopName": "Rabeanco", 
+        "ShopID": "QBHouseKids123",
+        "Shoplocation": "#B1-01"
+    }, { 
+        "ShopName": "RedEye", 
+        "ShopID": "QBHouseKids123",
+        "Shoplocation": "#02-174"
+    }, { 
+        "ShopName": "Ripcurl", 
+        "ShopID": "Ripcurl123",
+        "Shoplocation": "#02-26"
+    }, { 
+        "ShopName": "Rive Gauche Patisserie", 
+        "ShopID": "RiveGauchePatisserie123",
+        "Shoplocation": "#B2-K5"
+    }, { 
+        "ShopName": "Royal Sporting House", 
+        "ShopID": "RoyalSportingHouse123",
+        "Shoplocation": "#02-111"
+    }, { 
+        "ShopName": "Sacoor Brothers", 
+        "ShopID": "SacoorBrothers123",
+        "Shoplocation": "#01-138"
+    }, { 
+        "ShopName": "Saint Marc Cafe", 
+        "ShopID": "SaintMarcCafe123",
+        "Shoplocation": "#01-108"
+    }, { 
+        "ShopName": "Samsonite", 
+        "ShopID": "Samsonite123",
+        "Shoplocation": "#01-91"
+    }, { 
+        "ShopName": "Samsonite Red", 
+        "ShopID": "SamsoniteRed123",
+        "Shoplocation": "#01-91"
+    }, { 
+        "ShopName": "Samsung", 
+        "ShopID": "Samsung123",
+        "Shoplocation": "#02-28"
+    }, { 
+        "ShopName": "Sanrio Gift Gate", 
+        "ShopID": "SanrioGiftGate123",
+        "Shoplocation": "#02-95"
+    }, { 
+        "ShopName": "SaSa", 
+        "ShopID": "SaSa123",
+        "Shoplocation": "#02-176"
+    }, { 
+        "ShopName": "Secret Recipe", 
+        "ShopID": "SecretRecipe123",
+        "Shoplocation": "#02-108"
+    }, { 
+        "ShopName": "Seed Heritage", 
+        "ShopID": "SeedHeritage123",
+        "Shoplocation": "#02-87"
+    }, { 
+        "ShopName": "Seiko", 
+        "ShopID": "Seiko123",
+        "Shoplocation": "#01-03"
+    }, { 
+        "ShopName": "Selffix DIY", 
+        "ShopID": "SelffixDIY123",
+        "Shoplocation": "#B2-20"
+    }, { 
+        "ShopName": "Sephora", 
+        "ShopID": "Sephora123",
+        "Shoplocation": "#01-178"
+    }, { 
+        "ShopName": "Serenity Spanish Bar & Restaurant", 
+        "ShopID": "SerenitySpanishBar&Restaurant123",
+        "Shoplocation": "#01-98"
+    }, { 
+        "ShopName": "SF Juice", 
+        "ShopID": "SFJuice123",
+        "Shoplocation": "#B2-05A"
+    }, { 
+        "ShopName": "Shin Kushiya", 
+        "ShopID": "ShinKushiya123",
+        "Shoplocation": "#02-120"
+    }, { 
+        "ShopName": "Shu Uemura", 
+        "ShopID": "ShuUemera123",
+        "Shoplocation": "#01-12"
+    }, { 
+        "ShopName": "Simply Toys", 
+        "ShopID": "SimplyToys123",
+        "Shoplocation": "#02-32"
+    }, { 
+        "ShopName": "SingKids", 
+        "ShopID": "SingKids123",
+        "Shoplocation": "#01-171"
+    }, { 
+        "ShopName": "SingTel", 
+        "ShopID": "SingTel123",
+        "Shoplocation": "#02-216C"
+    },{ 
+        "ShopName": "Sixties", 
+        "ShopID": "Sixties123",
+        "Shoplocation": "#02-187"
+    }, { 
+        "ShopName": "SK Jewellery", 
+        "ShopID": "SK Jewellery123",
+        "Shoplocation": "#02-180"
+    }, { 
+        "ShopName": "Skechers", 
+        "ShopID": "Skechers123",
+        "Shoplocation": "#02-13"
+    }, { 
+        "ShopName": "Smiggle", 
+        "ShopID": "Smiggle123",
+        "Shoplocation": "#02-17"
+    }, { 
+        "ShopName": "Snackz It!", 
+        "ShopID": "SnackzIt!123",
+        "Shoplocation": "#B2-K24"
+    }, { 
+        "ShopName": "Sookee Jewel Pavilion", 
+        "ShopID": "SookeeJewelPavilion123",
+        "Shoplocation": "#01-183"
+    }, { 
+        "ShopName": "Soup Restaurant", 
+        "ShopID": "SoupRestaurant123",
+        "Shoplocation": "#02-141"
+    }, { 
+        "ShopName": "Staccato", 
+        "ShopID": "Staccato123",
+        "Shoplocation": "#01-117"
+    }, { 
+        "ShopName": "Starbucks", 
+        "ShopID": "Starbucks123",
+        "Shoplocation": "#01-168"
+    }, { 
+        "ShopName": "Starbucks Coffee", 
+        "ShopID": "StarbucksCoffee123",
+        "Shoplocation": "#02-60"
+    }, { 
+        "ShopName": "Starhub", 
+        "ShopID": "Starhub123",
+        "Shoplocation": "#02-202"
+    }, { 
+        "ShopName": "Steve Madden", 
+        "ShopID": "SteveMadden123",
+        "Shoplocation": "#B1-04"
+    }, { 
+        "ShopName": "Stride Rite/ Petit Bateau", 
+        "ShopID": "StrideRite/PetitBateau123",
+        "Shoplocation": "#02-85"
+    }, { 
+        "ShopName": "Strip", 
+        "ShopID": "Strip123",
+        "Shoplocation": "#02-179"
+    }, { 
+        "ShopName": "Stuff'D", 
+        "ShopID": "Stuff'D123",
+        "Shoplocation": "#B2-K18"
+    }, { 
+        "ShopName": "Subway", 
+        "ShopID": "Subway123",
+        "Shoplocation": "#B2-31"
+    }, { 
+        "ShopName": "Sun Moulin", 
+        "ShopID": "SunMoulin123",
+        "Shoplocation": "#B2-10"
+    }, { 
+        "ShopName": "Sun Paradise", 
+        "ShopID": "SunParadise123",
+        "Shoplocation": "#B2-55"
+    }, { 
+        "ShopName": "Sunglass Hut", 
+        "ShopID": "SunglassHut123",
+        "Shoplocation": "#01-K23"
+    }, { 
+        "ShopName": "SuperDry", 
+        "ShopID": "SuperDry123",
+        "Shoplocation": "#01-129"
+    }, { 
+        "ShopName": "Superga", 
+        "ShopID": "Superga123",
+        "Shoplocation": "#02-73"
+    }, { 
+        "ShopName": "SuperHeroes Galaxy", 
+        "ShopID": "SuperHeroesGalaxy123",
+        "Shoplocation": "#02-98"
+    }, { 
+        "ShopName": "Sushi Goshin By Akashi", 
+        "ShopID": "SushiGoshinByAkashi123",
+        "Shoplocation": "#B2-28"
+    }, { 
+        "ShopName": "Sushi-Tei", 
+        "ShopID": "SushiTei123",
+        "Shoplocation": "#02-152"
+    }, { 
+        "ShopName": "Swarovski", 
+        "ShopID": "Swarovski123",
+        "Shoplocation": "#01-15"
+    }, { 
+        "ShopName": "T.M.Lewin", 
+        "ShopID": "T.M.Lewin123",
+        "Shoplocation": "#01-122"
+    }, { 
+        "ShopName": "Tai Lei Loi Kei", 
+        "ShopID": "TaiLeiLoiKei123",
+        "Shoplocation": "#B2-26A"
+    },{ 
+        "ShopName": "Tajimaya Yakiniku/Shabuya", 
+        "ShopID": "Tajimaya akiniku/Shabuya123",
+        "Shoplocation": "#01-102"
+    },{ 
+        "ShopName": "Tangs", 
+        "ShopID": "Tangs123",
+        "Shoplocation": "#01-187"
+    }, { 
+        "ShopName": "Tarta", 
+        "ShopID": "Tarta123",
+        "Shoplocation": "#B2-K19"
+    }, { 
+        "ShopName": "Taste Better", 
+        "ShopID": "TasteBetter123",
+        "Shoplocation": "#B2-K12"
+    }, { 
+        "ShopName": "TCC- The Connoisseur Concerto", 
+        "ShopID": "TCC-TheConnoisseurConcerto123",
+        "Shoplocation": "#B2-K12"
+    }, { 
+        "ShopName": "Team Salon", 
+        "ShopID": "TeamSalon123",
+        "Shoplocation": "#02-234"
+    }, { 
+        "ShopName": "Ted Baker", 
+        "ShopID": "TedBaker123",
+        "Shoplocation": "#01-132"
+    }, { 
+        "ShopName": "Temt", 
+        "ShopID": "Temt123",
+        "Shoplocation": "#02-43"
+    }, { 
+        "ShopName": "Teppei Daidokoro", 
+        "ShopID": "TeppeiDaidokoro123",
+        "Shoplocation": "#B2-K22"
+    }, { 
+        "ShopName": "Texas Chicken", 
+        "ShopID": "TexasChicken123",
+        "Shoplocation": "#B2-24"
+    }, { 
+        "ShopName": "Thai Accent", 
+        "ShopID": "ThaiAccent123",
+        "Shoplocation": "#02-145"
+    }, { 
+        "ShopName": "Thai Express", 
+        "ShopID": "ThaiExpress123",
+        "Shoplocation": "#B2-30"
+    }, { 
+        "ShopName": "The Body Shop", 
+        "ShopID": "TheBodyShop123",
+        "Shoplocation": "#02-233A"
+    }, { 
+        "ShopName": "The Chop House", 
+        "ShopID": "TheChopHouse123",
+        "Shoplocation": "#01-161"
+    }, { 
+        "ShopName": "The Cocoa Trees", 
+        "ShopID": "TheCocoaTrees123",
+        "Shoplocation": "#01-K19/20"
+    }, { 
+        "ShopName": "The Coffee Bean & Tea Leaf", 
+        "ShopID": "TheCoffeeBean&TeaLeaf123",
+        "Shoplocation": "#02-03"
+    }, { 
+        "ShopName": "The Diamond Atlier", 
+        "ShopID": "TheDiamondAtlier123",
+        "Shoplocation": "#01-193"
+    }, { 
+        "ShopName": "The Hour Glass", 
+        "ShopID": "TheHourGlass123",
+        "Shoplocation": "#01-24"
+    }, { 
+        "ShopName": "The King Louis Grill & Bar", 
+        "ShopID": "TheKingLouisGrill&Bar123",
+        "Shoplocation": "#03-07A"
+    }, { 
+        "ShopName": "The Pet Safari", 
+        "ShopID": "ThePetSafari123",
+        "Shoplocation": "#03-05"
+    }, { 
+        "ShopName": "The Polliwogs", 
+        "ShopID": "ThePolliwogs123",
+        "Shoplocation": "#03-12"
+    }, { 
+        "ShopName": "The Queen Mangosteen", 
+        "ShopID": "TheQueenMangosteen123",
+        "Shoplocation": "#01-106"
+    }, { 
+        "ShopName": "The Soup Spoon Union", 
+        "ShopID": "TheSoupSpoonUnion123",
+        "Shoplocation": "#B2-37"
+    }, { 
+        "ShopName": "The Underground", 
+        "ShopID": "TheUnderground123",
+        "Shoplocation": "#02-236"
+    },  { 
+        "ShopName": "The Face Shop", 
+        "ShopID": "TheFaceShop123",
+        "Shoplocation": "#02-178"
+    },  { 
+        "ShopName": "Thomas Sabo", 
+        "ShopID": "ThomasSabo123",
+        "Shoplocation": "#B1-09"
+    }, { 
+        "ShopName": "Timberland", 
+        "ShopID": "Timberland123",
+        "Shoplocation": "#01-81"
+    },  { 
+        "ShopName": "Timezone", 
+        "ShopID": "Timezone123",
+        "Shoplocation": "#03-03"
+    },  { 
+        "ShopName": "Tommy Hilfiger", 
+        "ShopID": "TommyHilfiger123",
+        "Shoplocation": "#01-80"
+    },  { 
+        "ShopName": "Topshop/Topman", 
+        "ShopID": "Topshop/Topman123",
+        "Shoplocation": "#01-72"
+    }, { 
+        "ShopName": "Toss & Turn By Cedele", 
+        "ShopID": "Toss&TurnByCedele123",
+        "Shoplocation": "#01-113"
+    }, { 
+        "ShopName": "Toy Outpost", 
+        "ShopID": "ToyOutpost123",
+        "Shoplocation": "#02-27"
+    }, { 
+        "ShopName": "ToysRUs", 
+        "ShopID": "ToysRUs123",
+        "Shoplocation": "#02-183"
+    }, { 
+        "ShopName": "Traveller World", 
+        "ShopID": "TravellerWorld123",
+        "Shoplocation": "#02-205"
+    }, { 
+        "ShopName": "TrollBeads", 
+        "ShopID": "TrollBeads123",
+        "Shoplocation": "#01-04"
+    }, { 
+        "ShopName": "Tunglok Signatures", 
+        "ShopID": "TunglokSignatures123",
+        "Shoplocation": "#01-57"
+    }, { 
+        "ShopName": "Twelve Cupcakes", 
+        "ShopID": "TwelveCupcakes123",
+        "Shoplocation": "#B2-K14"
+    }, { 
+        "ShopName": "Typo", 
+        "ShopID": "Typo123",
+        "Shoplocation": "#02-39"
+    }, { 
+        "ShopName": "Under Armour", 
+        "ShopID": "UnderArmour123",
+        "Shoplocation": "#02-21"
+    }, { 
+        "ShopName": "Uniqlo", 
+        "ShopID": "Uniqlo123",
+        "Shoplocation": "#01-41"
+    }, { 
+        "ShopName": "Urban Decay", 
+        "ShopID": "UrbanDecay123",
+        "Shoplocation": "#01-13"
+    }, { 
+        "ShopName": "Uyi Savoury Squids", 
+        "ShopID": "UyiSavourySquids123",
+        "Shoplocation": "#B2-K20"
+    }, { 
+        "ShopName": "Vans", 
+        "ShopID": "Vans123",
+        "Shoplocation": "#02-68"
+    }, { 
+        "ShopName": "VivoMart-ColdStorage", 
+        "ShopID": "VivoMart-ColdStorage123",
+        "Shoplocation": "#01-23"
+    }, { 
+        "ShopName": "VivoMart-Giant", 
+        "ShopID": "VivoMart-Giant123",
+        "Shoplocation": "#B2-23"
+    }, { 
+        "ShopName": "VivoMart-Guardian", 
+        "ShopID": "VivoMart-Guardian123",
+        "Shoplocation": "#01-23"
+    }, { 
+        "ShopName": "Warehouse", 
+        "ShopID": "Warehouse123",
+        "Shoplocation": "#01-72"
+    }, { 
+        "ShopName": "Watches Of Switzerland", 
+        "ShopID": "WatchesOfSwitzerland123",
+        "Shoplocation": "#01-66"
+    },{ 
+        "ShopName": "Watsons", 
+        "ShopID": "Watsons123",
+        "Shoplocation": "#B2-15"
+    },{ 
+        "ShopName": "Weekends", 
+        "ShopID": "Weekends123",
+        "Shoplocation": "#B1-10"
+    }, { 
+        "ShopName": "Wingstop", 
+        "ShopID": "Wingstop123",
+        "Shoplocation": "#02-143"
+    }, { 
+        "ShopName": "World Of Sports", 
+        "ShopID": "WorldOfSports123",
+        "Shoplocation": "#02-99"
+    }, { 
+        "ShopName": "XNDO", 
+        "ShopID": "XNDO123",
+        "Shoplocation": "#B2-06A"
+    }, { 
+        "ShopName": "Xpressflower.com", 
+        "ShopID": "Xpressflower.com123",
+        "Shoplocation": "#01-142"
+    }, { 
+        "ShopName": "Ya Kun Kaya Toast", 
+        "ShopID": "YaKunKayaToast123",
+        "Shoplocation": "#B2-26"
+    }, { 
+        "ShopName": "Yankee Candle", 
+        "ShopID": "YankeeCandle123",
+        "Shoplocation": "#02-154"
+    }, { 
+        "ShopName": "Yves Saint Laurent", 
+        "ShopID": "YvesSaintLaurent123",
+        "Shoplocation": "#01-02"
+    }, { 
+        "ShopName": "Zara", 
+        "ShopID": "Zara123",
+        "Shoplocation": "#01-28"
+    }, { 
+        "ShopName": "Z T P Ginseng Birdnest", 
+        "ShopID": "ZTPGinsengBirdnest123",
+        "Shoplocation": "#B2-12"
+    }, { 
+        "ShopName": "Others..", 
+        "ShopID": "Others123",
+        "Shoplocation": "#xx-xx"
+    }]   
+}
