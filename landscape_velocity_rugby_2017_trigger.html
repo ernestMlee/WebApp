@@ -1,0 +1,267 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true">
+		
+		<title>MIND</title>
+		
+		<!-- Link Reference to CSS and JavaScript -->
+		<script type="text/javascript" src="javascript/trinax_all.js"></script>
+		
+		<style type="text/css">
+		<!--
+		html 
+		{
+			-webkit-text-size-adjust: none
+		}
+		
+		@font-face 
+		{
+		    font-family: "OpenSans-Bold";
+		    src: url("lib/font/OpenSans-Bold.ttf");
+		}
+		
+		body
+		{
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+			height: 2160px;
+			color: #000000;
+			background-color: #000000;
+			font-weight: bold;
+			font-family: "OpenSans-Bold";
+			overflow-y: hidden;
+			overflow-x: hidden;
+			cursor: none;
+			
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		-->
+		</style>
+		
+		<script type="text/javascript">
+		var isTigger = false;
+		var isComplete = false;
+		var gameScore = "";
+		
+		function ajax_getTrigger()
+		{
+			$.ajax({
+		        type: "POST",
+		        url: "velocity.do", 
+		        data: "formType=getTrigger",
+				dataType: 'text',
+		        success: function(data) { 
+					if(data == "true")
+					{
+						if(isTigger == false)
+						{
+							isTigger = true;
+							
+							// Switch ready video
+							game_ready();
+						}
+					}
+					else if(data == "false")
+					{
+						if(isTigger)
+						{
+							isTigger = false;
+							
+							// Reset to idle
+							game_init();
+						}
+					}
+				},
+				complete: function(data) { },
+		        error: function(request, status,error) { }
+			});
+		}
+		
+		function ajax_getGameComplete()
+		{
+			$.ajax({
+		        type: "POST",
+		        url: "velocity.do", 
+		        data: "formType=getGameComplete",
+				dataType: 'text',
+		        success: function(data) { 
+					console.log("complete: " + data);
+					if(data != "")
+					{
+						var dataList = data.split(",");
+						
+						if(dataList[0] == "true")
+						{
+							if(isComplete == false && isTigger == true)
+							{
+								isComplete = true;
+								
+								// Switch game complete
+								game_complete(dataList[1]);
+							}
+						}
+					}
+				},
+				complete: function(data) { },
+		        error: function(request, status,error) { }
+			});
+		}
+		
+		function game_ready()
+		{
+			$("#jquery_jplayer_game_ready").jPlayer("setMedia", {
+				m4v: "lib/video/countdown.mp4"
+			}).jPlayer("play");
+			
+			$("#jquery_jplayer_game_background").fadeOut();
+			$("#jquery_jplayer_game_ready").fadeIn();
+			
+			setTimeout(function() { 
+				game_play();
+			}, 5000);
+		}
+		
+		function game_play()
+		{
+			$("#jquery_jplayer_game_play").jPlayer("setMedia", {
+				m4v: "lib/video/game_start.mp4"
+			}).jPlayer("play");
+			
+			$("#jquery_jplayer_game_ready").fadeOut();
+			$("#jquery_jplayer_game_play").fadeIn();
+		}
+		
+		function game_complete(time)
+		{
+			$("#game_complete_time").html(time);
+			
+			$("#jquery_jplayer_game_complete").jPlayer("setMedia", {
+				m4v: "lib/video/timing.mp4"
+			}).jPlayer("play");
+			
+			$("#jquery_jplayer_game_play").fadeOut();
+			$("#jquery_jplayer_game_complete").fadeIn();
+			$("#game_complete_time").fadeIn();
+			
+			setTimeout(function() { 
+				var timeList = time.split(":");
+				var timing = (parseInt(timeList[0]) * 60) + parseInt(timeList[1]);
+				
+				if(timing <= 15)
+				{
+					game_congrats(true);
+				}
+				else
+				{
+					game_congrats(false);
+				}
+			}, 5000);
+		}
+		
+		function game_congrats(isWin)
+		{
+			if(isWin)
+			{
+				$("#jquery_jplayer_game_congrats").jPlayer("setMedia", {
+					m4v: "lib/video/amazing.mp4"
+				}).jPlayer("play");
+			}
+			else
+			{
+				$("#jquery_jplayer_game_congrats").jPlayer("setMedia", {
+					m4v: "lib/video/goodtry.mp4"
+				}).jPlayer("play");
+			}
+			
+			$("#jquery_jplayer_game_complete").fadeOut();
+			$("#jquery_jplayer_game_congrats").fadeIn();
+		}
+		
+		function game_init()
+		{
+			$("#jquery_jplayer_game_ready").fadeOut();
+			$("#jquery_jplayer_game_play").fadeOut();
+			$("#jquery_jplayer_game_complete").fadeOut();
+			$("#game_complete_time").fadeOut();
+			$("#jquery_jplayer_game_congrats").fadeOut();
+			$("#jquery_jplayer_game_background").fadeIn();
+			
+			$("#game_complete_time").html("");
+		}
+		
+		$(document).ready(function(){
+			$("#jquery_jplayer_game_background").jPlayer({
+				ready: function(){ 
+					$("#jquery_jplayer_game_background").jPlayer("setMedia", {
+						m4v: "lib/video/idle.mp4"
+					}).jPlayer("play");
+				},
+				swfPath: "javascript",
+				supplied: "webmv, ogv, m4v",
+				loop: true, 
+				size: { width: 7680, height: 2160 }
+			});
+			
+			$("#jquery_jplayer_game_ready").jPlayer({
+				ready: function(){ }, 
+				swfPath: "javascript",
+				supplied: "webmv, ogv, m4v",
+				loop: true, 
+				size: { width: 7680, height: 2160 }
+			});
+			
+			$("#jquery_jplayer_game_play").jPlayer({
+				ready: function(){ },
+				swfPath: "javascript",
+				supplied: "webmv, ogv, m4v",
+				loop: true, 
+				size: { width: 7680, height: 2160 }
+			});
+			
+			$("#jquery_jplayer_game_complete").jPlayer({
+				ready: function(){ },
+				ended: function(){ }, 
+				swfPath: "javascript",
+				supplied: "webmv, ogv, m4v", 
+				loop: true, 
+				size: { width: 7680, height: 2160 }
+			});
+			
+			$("#jquery_jplayer_game_congrats").jPlayer({
+				ready: function(){ },
+				swfPath: "javascript",
+				supplied: "webmv, ogv, m4v",
+				loop: true, 
+				size: { width: 7680, height: 2160 }
+			});
+			
+			setInterval(function() {
+				ajax_getTrigger();
+			}, 500);
+			
+			setInterval(function() {
+				ajax_getGameComplete();
+			}, 500);
+		});
+		</script>
+	</head>
+	
+	<body oncontextmenu="return false">
+	<!--<body>-->
+		<div id="jquery_jplayer_game_background" style="position:absolute; z-index:1; top:0; left:0; margin:auto; width:7680; height:2160;"></div>
+		<div id="jquery_jplayer_game_ready" style="display:none; position:absolute; z-index:1; top:0; left:0; margin:auto; width:7680; height:2160;"></div>
+		<div id="jquery_jplayer_game_play" style="display:none; position:absolute; z-index:1; top:0; left:0; margin:auto; width:7680; height:2160;"></div>
+		<div id="jquery_jplayer_game_complete" style="display:none; position:absolute; z-index:1; top:0; left:0; margin:auto; width:7680; height:2160;"></div>
+		<div id="game_complete_time" style="display:none; position:absolute; z-index:2; top:360; left:0; margin:auto; width:7680; height:1000; text-align:center; font-size:1000px; color:#FF8C04;"></div>
+		<div id="jquery_jplayer_game_congrats" style="display:none; position:absolute; z-index:1; top:0; left:0; margin:auto; width:7680; height:2160;"></div>
+	</body>
+</html>
