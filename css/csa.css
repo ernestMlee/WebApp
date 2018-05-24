@@ -1,0 +1,178 @@
+html, body
+{
+    padding: 0px;
+    margin: 0px;
+    top:0px;
+    left:0px;
+    width:1080px;
+    height:1920px;
+    overflow: hidden;
+    cursor: none;
+    background-color: black;
+    background-color: #000000;
+
+    /*Disable blue overlay when image click*/
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+}
+
+.hidden
+{
+    display:none;
+}
+@font-face {
+    font-family: "bettynoir";
+    src: url("../lib/fonts/bettynoir.ttf");
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("../lib/fonts/Futura.ttf");
+}
+
+.MainReset{
+    position: absolute;
+    width:1080px;
+    height:180px;
+    left:0px;
+    top:0px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}
+
+.Container
+{
+    position: absolute;
+    top:430px;
+    left:87px;
+    height:560px;
+    width:900px;
+    overflow-y: scroll;
+}
+
+.innerScroll
+{
+    position:relative;
+    width:800px;
+    font-size:29px; 
+    text-align: justify;
+    color: #ffffff !important;
+    overflow:hidden; 
+}
+.Container::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    background-color: #7c7676;
+}
+.Container::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #ffffff;
+}
+.Container::-webkit-scrollbar-thumb
+{
+    border-radius: 20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #ffffff;
+}
+
+.decrease_brightness
+{
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%);
+}
+
+.original_brightness
+{
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+}
+
+.increase_brightness
+{
+    filter: brightness(150%);
+    -webkit-filter: brightness(150%);
+    -moz-filter: brightness(150%);
+    -o-filter: brightness(150%);
+    -ms-filter: brightness(150%);
+}
+
+.menu
+{
+    background-color: #FFFFFF;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+.transparentBg
+{
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+
+.Close{
+    position: absolute;
+    width:80px;
+    height:80px;
+    left:980px;
+    top:420px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}
+.GameStart_button_animate {
+    animation: GameStart_pulse 1s linear infinite;
+}
+
+@keyframes GameStart_pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.3, 1.3);
+    }   
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+#Game_Question_Index{
+    position: absolute;
+    top:423px;
+    width: 80px;
+    height:80px;
+    left:828px;
+    outline: 0px;
+    border:0;
+    z-index:100;
+}
+
+.NextQuestion{
+    position: absolute;
+    width:1080px;
+    height:180px;
+    left:0px;
+    top:1440px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}

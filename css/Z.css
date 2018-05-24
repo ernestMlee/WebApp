@@ -1,0 +1,177 @@
+ html, body{
+    padding: 0px;
+    margin: 0px;
+    top:0px;
+    left:0px;
+    width:1080px;
+    height:1920px;
+    overflow: hidden;
+	cursor: none;
+    background-color: black;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@font-face {
+    font-family: "Black";
+    src: url("../lib/fonts/Gotham-Black.otf");
+}
+
+@font-face {
+    font-family: "Book";
+    src: url("../lib/fonts/GothamHTF-Book.otf");
+}
+
+.hidden
+{
+    display:none;
+}
+
+.MainReset
+{
+    position: absolute;
+    width:1080px;
+    height:220px;
+    left:0px;
+    top:0px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}
+
+.Terms
+{
+    position: absolute;
+    width:1080px;
+    height:1700px;
+    left:0px;
+    top:220px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}
+
+.Start
+{
+    position: absolute;
+    width:550px;
+    height:150px;
+    left:284px;
+    top:1305px;
+    z-index: 100;
+    outline: 0;
+    border:0;
+    background: transparent;
+}
+
+.Container
+{
+    position: absolute;
+    top:560px;
+    left:140px;
+    height:650px;
+    width:800px;
+    overflow-y: scroll;
+}
+.innerScroll
+{
+    position:relative;
+    width:750px;
+    font-size:35px; 
+    text-align: justify;
+    color: #000 !important;
+    overflow:hidden; 
+    font-family:'Book';
+}
+.Container::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    background-color: #7c7676;
+}
+.Container::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #7c7676;
+}
+.Container::-webkit-scrollbar-thumb
+{
+    border-radius: 20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #00aa27;
+}
+
+.decrease_brightness
+{
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%);
+}
+
+.original_brightness
+{
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+}
+
+.increase_brightness
+{
+    filter: brightness(150%);
+    -webkit-filter: brightness(150%);
+    -moz-filter: brightness(150%);
+    -o-filter: brightness(150%);
+    -ms-filter: brightness(150%);
+}
+
+.menu
+{
+    background-color: #FFFFFF;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+.transparentBg
+{
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.QuestionIndex{
+    position: absolute;
+    top:475px;
+    width: 80px;
+    height:80px;
+    left:750px;
+    font-size:95px; 
+    text-align: center;
+    color: #00aa27;
+    z-index:100;
+    font-family:'Black';
+}
+
+.GameTimer{
+    position: absolute;
+    top:200px;
+    width: 80px;
+    height:80px;
+    left:480px;
+    font-size:95px; 
+    text-align: center;
+    color: #00aa27;
+    z-index:100;
+    font-family:'Black';
+}

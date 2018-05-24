@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Zytiga</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" author="ErnestLee" content="width=device-width, initial-scale=1.0,  maximum-scale=1, user-scalable=no">
+
+        <script src="javascript/jquery-1.11.3.min.js"></script>
+        <script src="javascript/jquery-ui-1.10.3.min.js"></script>
+        <script src="javascript/jplayer.playlist.min.js"></script>
+        <script src="javascript/jquery.jplayer.min.js"></script>
+        <script src="javascript/ajax.js"></script>
+        <script src="javascript/trinax_all.js"></script>
+
+        <style type = "text/css">
+        </style>
+
+       
+        <link rel="stylesheet" href="css/Z.css">
+       
+    </head>
+
+    <body oncontextmenu="return false">
+
+        <audio id="ClickSoundAudio" src="lib/audio/ClickSound.mp3"></audio>
+        <audio id="BackgroundAudio" src="lib/audio/BackgroundAudio.mp3" loop></audio>
+        <audio id="GameBackgroundAudio" src="lib/audio/GameBackground.mp3" loop></audio>
+        <audio id="Game_correct" src="lib/audio/GameCorrect.mp3"></audio>
+        <audio id="Game_wrong" src="lib/audio/GameWrong.mp3"></audio>
+        <audio id="Game_Lost" src="lib/audio/GameLose.mp3"></audio>
+        <audio id="Game_Win" src="lib/audio/GameWin.mp3"></audio>
+        <audio id="TimeUpAudio" src="lib/audio/WarningTime.mp3"></audio>
+
+        <div id="Quiz_Main" align= "center" style ="position:absolute; width:1080px; height:1920px; background-repeat: no-repeat; z-index=1; top:0px; left:0px;">
+
+            <button class = "MainReset" onclick="Reset()"></button>
+            <button class = "Terms" onclick="TnC()"></button>
+
+            <img id="MainBackground" src="lib/image/MainBackground.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> 
+
+            <!--Video Div-->
+            <div id ="QuizVideo" style="position:absolute;"></div>
+        </div>
+
+        <div id="Quiz_TnC" align= "center" style ="position:absolute; width:1080px; height:1920px; background-repeat: no-repeat; z-index=2; top:0px; left:0px; display: none;">
+
+            <img id="TnCBackground" src="lib/image/tnCBackground.png" style="position:absolute; top:0px; left:0px; margin:auto;"/> 
+
+            <button class = "MainReset" onclick="Reset()"></button>
+
+            <div id = "Terms" class ="Container">
+                <div id = "Scrolling" class ="innerScroll">
+
+                    <p>By participating in this interactive campaign (the "Rugby Touchdown Challenge"), you, the participant, hereby consent, accept and agree to the Terms and Conditions as follows:</p>
+
+                    <p><b>Terms and conditions ('Terms & Conditions')</b></p>
+
+                    <p>1.  </p>
+
+                    <p>2.  </p>
+
+                    <p>3.  </p>
+
+                    <p>4.  </p>
+
+                    <p>5.  </p>
+
+                    <p>6. </p>
+
+                    <p>7.  </p>
+                </div>
+            </div>
+
+            <button class = "Start" onclick="StartQuiz()"><img src="lib/image/agree.png"/></button>
+        </div>
+
+        <div id="QuizGamePage" align= "center" style ="position:absolute; width:1080px; height:1920px; background-repeat: no-repeat; display: none; z-index=3; top:0px; left:0px; margin:auto;">
+
+            <!--Video Div-->
+            <div id ="QuizTimer" style="position:absolute;"></div>
+
+            <img id="GamePage" src="lib/image/Quiz_Game.png" style="position:absolute; left:0px; top:0px;"/>
+
+            <!-- Div Tag for Game CountDownTimer -->
+            <div id="CountDownTimer" class="GameTimer">20</div>  
+
+            <div id ="Game_Question_Index" class="QuestionIndex" >1</div>
+
+            <!-- Original Question -->
+            <div id="GamePage_question" style="position:absolute; z-index:4; top:750px; left:200px; margin:auto; color:#000; font-size:40px; font-family: Book; width:650px; text-align: center;"></div>
+
+            <!-- Answer-Original-Choice List -->
+            <div id="GamePageAnswer_1" style="position:absolute;  z-index:30; width: 620px; top:985px; left:214px; margin:auto; color:#000; font-size:40px; font-family: Book;"></div>
+            <div id="GamePageAnswer_2" style="position:absolute; z-index:30; width: 620px; top:1095px; left:214px;  margin:auto; color:#000; font-size:40px; font-family: Book;"></div>
+            <div id="GamePageAnswer_3" style="position:absolute; z-index:30; width: 620px; top:1210px; left:214px;  margin:auto; color:#000; font-size:40px; font-family: Book;"></div>
+
+            <!-- Selection answer -->
+            <img src="lib/image/transparent.png" class="transparentBg"  style="position:absolute; z-index:99; top:970px; left:0px; margin:auto; width:1080px; height:90px; border:1;" onclick="select_answer(1);" />
+            <img src="lib/image/transparent.png" class="transparentBg"  style="position:absolute; z-index:99; top:1080px; left:0px; margin:auto; border:1; width:1080px; height:90px;" onclick="select_answer(2);" />
+            <img src="lib/image/transparent.png" class="transparentBg"  style="position:absolute; z-index:99; top:1195px; left:0px; margin:auto; border:1; width:1080px; height:90px;" onclick="select_answer(3);" />
+
+            <!-- Correct Answer Indicator -->
+            <img id="Correct_Choice_1" src="lib/image/Correct_Bar.png" style="display:none; position:absolute; z-index:20; top:973px; left:140px; margin:auto;" />
+            <img id="Correct_Choice_2" src="lib/image/Correct_Bar.png" style="display:none; position:absolute; z-index:20; top:1083px; left:140px; margin:auto;" />
+            <img id="Correct_Choice_3" src="lib/image/Correct_Bar.png" style="display:none; position:absolute; z-index:20; top:1198px; left:140px; margin:auto;" />
+
+             <!-- Wrong Answer Indicator -->
+            <img id="Wrong_1" src="lib/image/Wrong_Bar.png" style="display:none; position:absolute; z-index:20; top:973px; left:140px;  margin:auto;" />
+            <img id="Wrong_2" src="lib/image/Wrong_Bar.png" style="display:none; position:absolute; z-index:20; top:1083px; left:140px;  margin:auto;" />
+             <img id="Wrong_3" src="lib/image/Wrong_Bar.png" style="display:none; position:absolute; z-index:20; top:1198px; left:140px;  margin:auto;" />
+            
+            <!-- Correct Markers -->
+            <img id="marker_1" src="lib/image/correctMarker.png" style=" position:absolute; z-index:4; top:627px; left:350px; margin:auto;" />
+            <img id="marker_2" src="lib/image/correctMarker.png" style="position:absolute; z-index:4; top:627px;  left:487px; margin:auto;" />
+            <img id="marker_3" src="lib/image/correctMarker.png" style="position:absolute; z-index:4; top:627px;  left:621px; margin:auto;" />
+
+        </div>
+
+        <div id="Quiz_Congrats" align= "center" style ="position:absolute; width:1080px; height:1920px; background-repeat: no-repeat; display: none; z-index=5; top:0px; left:0px; margin:auto;">
+
+            <!--Video Div-->
+            <!-- <div id="CollectPrize_Video" style="position:absolute;"></div>  -->
+
+            <img id="CollectPrizePage" src="lib/image/congrats.png" style="position:absolute; left:0px; top:0px; width: 1080px; height:1920px;"/>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="QuizPage_GameOver" align= "center" style ="position:absolute; width:1080px; height:1920px; background-repeat: no-repeat; display: none; z-index=6; top:0px; left:0px; margin:auto;">
+
+            <!--Video Div-->
+            <!-- <div id="CollectPrize_Video" style="position:absolute;"></div>  -->
+
+            <img id="CollectPrizePage" src="lib/image/lose.png" style="position:absolute; left:0px; top:0px; width: 1080px; height:1920px;"/>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+    </body>   
+
+    <script>
+
+        console.clear();
+
+        var idleTime = 0;
+        var stopIdleCounter = true;
+
+        var snap_counter = 0;
+
+        var Game_wait = false;
+        var Game_isBlink = false;
+        var Game_correctEffectInterval;
+        var Game_correctEffectCounter = 0;
+
+        var setTimer;
+        var Quiz_Timeout = 100;
+        var exist = false;
+        var Correct_Blink = false;
+
+        // Quiz List
+        var Game_Correct_Count = 0;
+
+        var GameQuestion = ["In the COU-AA-301 final analysis of ZYTIGA® plus prednisone in men with mCRPC post-chemotherapy, what was the median OS?", "In the COU-AA-302 final analysis of ZYTIGA® plus prednisone in chemotherapy-naïve men with mCRPC, what was the OS? ", "In the COU-AA-302 final analysis trial, how long was the median duration of patient follow-up for chemotherapy-naïve men with mCRPC?", "ZYTIGA® has been prescribed to __________men worldwide in more than _______ countries.", "When was ZYTIGA® approved by HSA for treatment of mCRPC in adult men whose disease has progressed on or after a docetaxel-based chemotherapy regimen? ", "When was ZYTIGA® approved by HSA for treatment of mCRPC in chemotherapy-naïve adult men who are asymptomatic or mildly symptomatic after failure of ADT?", "Since product launch in Singapore, how old is ZYTIGA® this year?", "Is ZYTIGA® the standard of care in mCRPC treatment (post-ADT) as recommended by international guidelines (EAU, AUA & NCCN etc.)?", "In the COU-AA-302 post-hoc analysis, ZYTIGA® plus prednisone has been showed to achieve ________ median OS compared with prednisone alone when treated in early and less aggressive disease (BPI-SF 0-1, PSA <80 ng/mL and GS <8).", "ZYTIGA® improves the quality of patient’s lives by:", "Regular monitoring of patients with mCRPC is key to: " , "In a retrospective analysis of consecutive 81 mCRPC patients treated with ZYTIGA® and enzalutamide at Johns Hopkins, it was shown that there were BETTER CLINICAL OUTCOMES in COMBINED PFS when ZYTIGA® was sequenced FIRST compared to the Enza-to-ZYTIGA® sequence (19.5 months versus 13 months)." ,"In a retrospective analysis of consecutive 81 chemotherapy-naïve mCRPC patients treated with ZYTIGA® and enzalutamide at Johns Hopkins, PSA RESPONSE to both agents was SIGNIFICANTLY HIGHER when ZYTIGA® was sequenced FIRST compared to the Enza-to-ZYTIGA® sequence (33.8% versus 6.3%). " ,"In a retrospective analysis of 108 consecutive Japanese chemotherapy-naïve patients with mCRPC who sequentially received ZYTIGA® and enzalutamide, SUPERIOR CLINICAL OUTCOMES IN COMBINED PSA PFS was shown when ZYTIGA® was sequenced FIRST compared to the Enza-to-ZYTIGA® sequence (18.4 versus 12.8 median months). ", "There is proven evidence for the LONG-TERM SAFETY & TOLERABILITY of ZYTIGA® plus prednisone, with low incidence of corticosteroid-associated adverse events, even with ≥ 30 months exposure. "];
+
+        var GameAnswer = [["15.8 months", "15.5 months", "16.8 months"], ["35.8 months", "34.7 months", "34.8 months"], ["49.2 months", "45.8 months", "35.2 months"], ["289,500 and 100 , 269,550 and 150 , 269,500 and 100 "], ["8 May 2010 ", "9 May 2005", "8 May 2012 "], ["16 December 2013 ", "16 April 2013 ", "16 April 2001"], ["Five years old", "Four years old", "Sixteen years old"],["None of the above", "No", "Yes"], ["53.6 months ", "53.0 months ", "52.6 months "], ["a. Reducing pain interference and delaying pain progression","b. Reduces fatigue in patients with mCRPC ","c. All of the above"], , ["a. Identifying disease progression and providing life-prolonging treatments in a timely manner","b. Improved survival outcomes for patients","c. All of the above"], ["True", "False", "None of the above"], ["True", "False", "None of the above"], ["True", "False", "None of the above"], ["True", "False", "None of the above"]];
+
+        var GameCorrectAnswer = ["1", "2", "1", "3", "3", "2", "1", "3", "1", "3", "3", "1", "1", "1", "1"];
+
+        var GamePage_question_list = [];
+
+        var answerList,
+        random_Question;
+        var Correct_EffectInterval ;
+
+        var Q_index = 1;
+
+        document.onmousedown = disableclick;
+        function disableclick(event)
+        {
+            if(event.button == 2)
+            {
+                return false;
+            }
+        }
+
+        $(function() {
+
+            document.getElementById("BackgroundAudio").pause();
+            document.getElementById("BackgroundAudio").currentTime = 0;
+            document.getElementById("BackgroundAudio").play();
+
+            $("img").on("dragstart", function(event) { event.preventDefault(); });
+
+            setInterval(function() {
+                idleTime = idleTime + 1;
+                console.log(idleTime);
+                if (idleTime > 3) // 3 minutes
+                {
+                    location.reload();
+                }
+            }, 60000);
+            $(this).mousemove(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+            $(this).keypress(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+        });
+
+        function Reset(){
+
+            location.reload();
+        }
+
+        function TnC(){
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+
+            ajax_addInteraction("function.do", "formType=addInteraction&application=MAIN&mediaURL=1.mp4&projectID=MediShield&interaction=TOUCH");
+
+            $('#Quiz_Main').fadeOut({ duration: 1200, queue: false });
+            $('#Quiz_TnC').fadeIn({ duration: 1200, queue: false });
+        }
+
+        function StartQuiz(){
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            $('#Quiz_TnC').fadeOut({ duration: 1200, queue: false });
+
+            $('#QuizGamePage').fadeIn({ duration: 1200, queue: false, complete:function(){
+
+                document.getElementById("BackgroundAudio").pause();
+                document.getElementById("GameBackgroundAudio").pause();
+                document.getElementById("GameBackgroundAudio").currentTime = 0;
+                document.getElementById("GameBackgroundAudio").play();
+
+                //Display Question
+                showQuestion();
+
+                setTimer = setInterval(function() {
+                    Quiz_Timeout--;
+                    
+                    $("#CountDownTimer").show();
+
+                    if(Quiz_Timeout < 10)
+                    {
+                        $("#CountDownTimer").html("0" + Quiz_Timeout);
+                    }else
+                    {
+                        $("#CountDownTimer").html(Quiz_Timeout);
+                    }
+
+                    if (Quiz_Timeout == 5){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+                    }else if (Quiz_Timeout == 4){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+                    }
+                    else if (Quiz_Timeout == 3){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+                    }
+                    else if (Quiz_Timeout == 2){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+                    }
+                    else if (Quiz_Timeout == 1){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+                    }
+                    else if (Quiz_Timeout == 0){
+                        document.getElementById("TimeUpAudio").pause();
+                        document.getElementById("TimeUpAudio").currentTime = 0;
+                        document.getElementById("TimeUpAudio").play();
+
+                        //Condition to check if answer answered correct is not equal to 3 => GameOver Page
+                        if(Game_Correct_Count != 3)
+                        {
+                            clearInterval(setTimer);
+                            Quiz_GameOver();
+                        }
+                    }
+                },1000);
+            }});
+        }
+
+        function showQuestion(){
+
+            console.log("GamePage_question_list.length:" + GamePage_question_list.length);
+
+            //Question list shown is more than 5, show game over
+            if(GamePage_question_list.length == 5)
+            {
+                Quiz_GameOver();
+            }else{
+
+                Game_wait = false;
+                exist = false;
+
+                //Display random question
+                random_Question = Math.floor(Math.random() * GameQuestion.length);
+
+                $("#marker_1").hide();
+                $("#marker_2").hide();
+                $("#marker_3").hide(); 
+                
+                $("#Correct_Choice_1").hide();
+                $("#Correct_Choice_2").hide();
+                $("#Correct_Choice_3").hide();
+                $("#Wrong_1").hide();
+                $("#Wrong_2").hide();
+                $("#Wrong_3").hide();
+
+                for(i = 0; i < GamePage_question_list.length; i++)
+                {
+                    if(GamePage_question_list[i] == (random_Question + ""))
+                    {
+                        exist = true;
+                    }   
+                }
+
+                if(exist == false)
+                {
+                    $("#marker_" + Game_Correct_Count).attr("src", "lib/image/correctMarker.png").show();
+
+                    //Show Correct icon after 1st question
+                    if (Game_Correct_Count > 1){
+
+                        $("#marker_1").show();
+                    }
+
+                    GamePage_question_list.push(random_Question + "");
+
+                    $("#GamePage_question").html(GameQuestion[random_Question]);
+
+                    answerList = GameAnswer[random_Question];
+                    
+                    $("#GamePageAnswer_1").html(answerList[0]);
+                    $("#GamePageAnswer_2").html(answerList[1]);
+                    $("#GamePageAnswer_3").html(answerList[2]);
+                }
+                else
+                {
+                    showQuestion();
+                }
+            }
+        }
+
+        //Function to check on selected answer: if chosen answer is correct, proceed, else show GameOver Page
+        function select_answer(flag){
+
+            if(Game_wait == false)
+            {
+                Game_wait = true;
+
+                var currentQuestionIndex = GamePage_question_list[GamePage_question_list.length - 1];
+                var correctAnswer = GameCorrectAnswer[parseInt(currentQuestionIndex)];
+                
+                console.log("flag_answer chosen:" + flag);
+
+                if(flag == (correctAnswer + ""))
+                {
+                    document.getElementById("Game_correct").pause();
+                    document.getElementById("Game_correct").currentTime = 0;
+                    document.getElementById("Game_correct").play();
+
+                    Game_Correct_Count++;
+ 
+                    //Enable correct image to blink
+
+                    $("#marker_" + Game_Correct_Count).attr("src", "lib/image/correctMarker.png").show();
+
+                    var correctEffect = setInterval(function(){
+
+                        if(Correct_Blink){
+                            
+                            Correct_Blink =false;
+                            $("#Correct_Choice_" + flag).attr("class", "original_brightness");
+                        } else {
+                            $("#Correct_Choice_" + flag).attr("class", "increase_brightness");
+
+                            Correct_Blink = true;
+                            setTimeout(function() {
+                    
+                                clearInterval(correctEffect);
+                                
+                            }, 1300);  
+                        }
+                        
+                    },100)
+
+                    if (flag == 1){
+
+                        $("#Correct_Choice_1").fadeIn();
+                        $("#GamePageAnswer_2").attr("class", "decrease_brightness");
+                        $("#GamePageAnswer_3").attr("class", "decrease_brightness");
+
+
+                    } else if(flag == 2){
+
+                        $("#Correct_Choice_2").fadeIn();
+                        $("#GamePageAnswer_1").attr("class", "decrease_brightness");
+                         $("#GamePageAnswer_3").attr("class", "decrease_brightness");
+
+                    } else if(flag == 3){
+
+                        $("#Correct_Choice_3").fadeIn();
+                        $("#GamePageAnswer_2").attr("class", "decrease_brightness");
+                        $("#GamePageAnswer_1").attr("class", "decrease_brightness");
+                    } 
+
+                    if (Game_Correct_Count == 1){
+                        Game_correctEffectInterval = setInterval(function() {
+                            Game_correct_effect("marker_" + Game_Correct_Count);
+                        }, 100);
+                    } else if(Game_Correct_Count == 2){
+                        Game_correctEffectInterval = setInterval(function() {
+                            Game_correct_effect("marker_" + Game_Correct_Count);
+                        }, 100);
+                    } else if(Game_Correct_Count == 3){
+                        Game_correctEffectInterval = setInterval(function() {
+                            Game_correct_effect("marker_" + Game_Correct_Count);
+                        }, 100);
+                    } 
+                }else{
+                    document.getElementById("Game_wrong").pause();
+                    document.getElementById("Game_wrong").currentTime = 0;
+                    document.getElementById("Game_wrong").play();
+
+                    console.log("GameCorrectAnswer" + correctAnswer);
+                    Game_show_correct_answer();
+
+                }
+            }
+        }
+
+        function Game_show_correct_answer(){
+
+            var currentQuestionIndex = GamePage_question_list[GamePage_question_list.length - 1];
+            var correctAnswer = GameCorrectAnswer[parseInt(currentQuestionIndex)];
+
+            if(correctAnswer == 1)
+            {
+                $("#Wrong_1").fadeIn();
+                $("#GamePageAnswer_2").attr("class", "decrease_brightness");
+                $("#GamePageAnswer_3").attr("class", "decrease_brightness");
+
+                setTimeout(function() {
+                    
+                    $("#Wrong_1").fadeOut();
+                    
+                }, 1300);
+                
+            }else if(correctAnswer == 2)
+            {
+                $("#Wrong_2").fadeIn();
+                $("#GamePageAnswer_1").attr("class", "decrease_brightness");
+                $("#GamePageAnswer_3").attr("class", "decrease_brightness");
+
+                setTimeout(function() {
+                    
+                    $("#Wrong_2").fadeOut();
+
+                }, 1300);
+            }else if(correctAnswer == 3)
+            {
+                $("#Wrong_3").fadeIn();
+                $("#GamePageAnswer_2").attr("class", "decrease_brightness");[
+                ]
+                $("#GamePageAnswer_1").attr("class", "decrease_brightness");
+
+                setTimeout(function() {
+                    
+                    $("#Wrong_3").fadeOut();
+
+                }, 1300);
+            }
+
+            setTimeout(function() {
+
+                //update on Question Number after each question change
+                Q_index = Q_index +1;
+                $("#Game_Question_Index").html(Q_index);
+                
+                 showQuestion();
+                
+            }, 1310);
+        }
+
+        function Game_correct_effect(id){
+
+            if(Game_isBlink)
+            {   
+                $("#" + id).attr("class", "original_brightness");
+            
+                Game_isBlink = false;
+
+                if(Game_correctEffectCounter == 3)
+                {
+                    Game_correctEffectCounter = 0;
+                    clearInterval(Game_correctEffectInterval);
+                    
+                    //Wait for 1 sec to alert user that the answer is correct before showing the next question
+
+                    setTimeout(function() {
+                        if(Game_Correct_Count == 3)
+                        {
+                            QuizGame_Congrats();
+                        }else{
+
+                            //update on Question Number after each question change
+                            Q_index = Q_index +1;
+                            $("#Game_Question_Index").html(Q_index);
+                            showQuestion();
+                        }
+                    }, 1500);
+                }
+            }
+            else
+            {
+                $("#" + id).attr("class", "increase_brightness");
+            
+                Game_isBlink = true;
+                Game_correctEffectCounter++;
+            }
+        }
+
+        function Quiz_GameOver(){
+            idleTime = 0;
+            document.getElementById("GameBackgroundAudio").pause();
+
+            document.getElementById("Game_Lost").pause();
+            document.getElementById("Game_Lost").currentTime = 0;
+            document.getElementById("Game_Lost").play();
+
+            document.getElementById("BackgroundAudio").pause();
+            document.getElementById("BackgroundAudio").currentTime = 0;
+            document.getElementById("BackgroundAudio").play();
+
+            ajax_addGameResult("game.do", "formType=addGameResult&gameFinalResult=LOST&game=MediShieldQUIZ&name=&contact=&email=&mediaURL=1.mp4&projectID=MediShieldLifeQuiz");
+
+            $('#QuizGamePage').fadeOut({ duration: 1200, queue: false });
+           
+            $('#QuizPage_GameOver').fadeIn({ duration: 1200, queue: false, complete:function(){
+
+                setTimeout(function() {
+                    location.reload();
+                }, 5000); 
+            }});
+           
+            
+        }
+
+        function  QuizGame_Congrats(){
+            idleTime = 0;
+
+            document.getElementById("GameBackgroundAudio").pause();
+
+            document.getElementById("Game_Win").pause();
+            document.getElementById("Game_Win").currentTime = 0;
+            document.getElementById("Game_Win").play();
+
+            document.getElementById("BackgroundAudio").pause();
+            document.getElementById("BackgroundAudio").currentTime = 0;
+            document.getElementById("BackgroundAudio").play();
+
+            ajax_addGameResult("game.do", "formType=addGameResult&gameFinalResult=WIN&game=MediShieldQUIZ&name=&contact=&email=&mediaURL=1.mp4&projectID=MediShieldLifeQuiz");
+
+            $('#QuizGamePage').fadeOut({ duration: 1200, queue: false });
+            
+            $('#Quiz_Congrats').fadeIn({ duration: 1200, queue: false,  complete:function(){
+
+                //Dispense Pen
+                ajax_vending("vending.do", "formType=vending&name&email=&contact=&location=Zytiga&special=&remarks=GameWin");
+
+                setTimeout(function() {
+                    location.reload();
+                }, 5000); 
+            }});
+        }
+    </script>
+</html>

@@ -1,0 +1,80 @@
+﻿<!--
+		html 
+		{
+			-webkit-text-size-adjust: none
+		}
+		
+		body
+		{
+			margin-left: 0px;
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+			height: 1080px;
+			color: #FFFFFF;
+			background-color: #000000;
+			font-weight: bold;
+			overflow-y: hidden;
+			overflow-x: hidden;
+			//cursor: none;
+			
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		
+		.transparentBg
+		{
+			filter: alpha(opacity=0);
+			opacity: 0;
+		}
+		
+		.menu
+		{
+			background-color: #000000;
+			filter: alpha(opacity=60);
+			opacity: 0.6;
+		}
+		
+		.camera_feed_flip
+		{
+			transform: rotateY(180deg);
+			-webkit-transform:rotateY(180deg); /* Safari and Chrome */
+			-moz-transform:rotateY(180deg); /* Firefox */
+		}
+		
+		#photobooth_name, #photobooth_email
+		{
+			-webkit-appearance:none;
+			-moz-appearance:none;
+			appearance:none;
+			border: 0px none;
+			background: none;
+		}
+		
+		input:focus
+		{
+		    outline: 0;
+		}
+		
+		@keyframes photobooth_pulse {
+		    0% {
+		     transform: scale(1, 1);
+		    }
+		
+		    50% {
+		     transform: scale(1.3, 1.3);
+		    }
+		
+		    100% {
+		    transform: scale(1, 1);
+		    }
+		}
+		
+		.photobooth_button_animate {
+		    animation: photobooth_pulse 1s linear infinite;
+		}
+		-->
