@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Velocity_Rugby</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" author="ErnestLee" content="width=device-width, initial-scale=1.0,  maximum-scale=1, user-scalable=no">
+
+        <script src="javascript/jquery-1.11.3.min.js"></script>
+        <script src="javascript/jquery-ui-1.10.3.min.js"></script>
+        <script src="javascript/jplayer.playlist.min.js"></script>
+        <script src="javascript/jquery.jplayer.min.js"></script>
+        <script src="javascript/ajax.js"></script>
+        <script src="javascript/trinax_all.js"></script>
+
+        <style type = "text/css">
+        </style>
+
+        <link rel="stylesheet" href="css/VelocityRugby.css">
+
+    </head>
+    <body oncontextmenu="return false">
+
+        <audio id="BackgroundSoundAudio" src="lib/audio/Background.mp3" loop></audio>
+        <audio id="ClickSoundAudio" src="lib/audio/Click.mp3"></audio>
+        <audio id="GameStart" src="lib/audio/GameStartCounter.mp3"></audio>
+        <audio id="GO" src="lib/audio/GameStartCounter_Go.mp3"></audio>
+        <audio id="Game_sound" src="lib/audio/Game.mp3" loop></audio>
+        <audio id="Game_Win" src="lib/audio/GameWin.mp3"></audio>
+        <audio id="Game_Lose" src="lib/audio/GameLose.mp3"></audio>
+
+
+        <div id="Rugby_Start" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=1; top:0px; left:0px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <!-- <div id="RugbyStart_Video" style="position:absolute;"></div> -->
+            <img id="mainRugby_Start" src="lib/image/TouchToBegin.png" alt="Start" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+
+            <!-- ScoreBoard -Table form-->
+            <div id ="Game_LeaderBoard" style="position:absolute; z-index:6; top:0px; left:0px; width: 1920px; heigth: 1000px; margin:auto;">
+
+                <table id="Rugby_Scoreboard">
+					<!--
+                    <tr>
+                        <td id= "Player_Name">
+							<font face = "OpenSans-Bold"></font>
+                        </td>
+
+                        <td id= "Player_Minute_Score">
+							<font face = "OpenSans-Bold"></font>
+                        </td>
+						
+						<td id= "Player_Second_Score">
+							<font face = "OpenSans-Bold"></font>
+                        </td>
+                    </tr>
+					-->
+                </table>
+
+            </div>
+
+            <button class = "StartRugby" onclick="Start()"></button>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+        
+        <div id="Rugby_TnC" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=2; display: none; top:0px; left:1921px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <!-- <div id="Rugby_TnC_Video" style="position:absolute;"></div> -->
+            <img id="RugbyTnC" src="lib/image/RugbyTnC.png" alt="TnC" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <div id = "Terms" class ="Container">
+                <div id = "Scrolling" class ="innerScroll">
+
+                    <p>By participating in this interactive campaign (the "Rugby Touchdown Challenge"), you, the participant, hereby consent, accept and agree to the Terms and Conditions as follows:</p>
+
+                    <p><b>Terms and conditions ('Terms & Conditions')</b></p>
+
+                    <p>1. Velocity's decision of the campaignare final, conclusive and binding, and no enquiries or appeals shall be entertained. </p>
+
+                    <p>2. Velocity will arrange for the winner's collection of the prize. The winner acknowledges and agrees that (a) risk and title in and to the prize vests in the winner upon his/her collection of the prize; and (b) prizes are not exchangeable for cash or in kind. Velocity reserves the right to deal with any unclaimed prize in any manner it deems fit. </p>
+
+                    <p>3. You do not have the right to use, and shall not use, in any way whatsoever the Velocity's mark and any related service and programme marks, brands, program titles, visuals, photos, names and likenesses of characters and/or performers. </p>
+
+                    <p>4. Non-compliance with or breach of any of these Terms & Conditions or dishonesty, fraud or any other illegal activities shall immediately disqualify you from further participation at any stage of the Velocity, and any prize won shall be forfeited, withheld or withdrawn. </p>
+
+                    <p>5. Velocity reserves the right to amend or vary any of these Terms & Conditions. </p>
+
+                    <p>6. You shall indemnify and keep Velocity and its affiliated/related companies indemnified against any and all loss, damage, claims and costs suffered and/or incurred as a result of your breach. </p>
+
+                    <p>7. These Terms & Conditions shall be governed by and construed in accordance with the laws of Singapore.  </p>
+                </div>
+            </div>
+
+            <button class = "StartInstructions" onclick="StartRugbyInstructions()"></button>
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="Rugby_GameInstruction" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=3; display: none; top:0px; left:1921px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <!-- <div id="Rugby_Instruction_Video" style="position:absolute;"></div> -->
+            <img id="Rugby_Instruction" src="lib/image/RugbyInstruction.png" alt="Instructions" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <button class = "StartGame" onclick="StartRugbyGame()"></button>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="Rugby_GamePage" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=4; display: none; top:0px; left:0px;">
+
+            <!-- Background -->
+            <img id="Rugby_Game" src="lib/image/RugbyGamePage.png" alt="Game" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <!-- Game Start Notification Tmer -->
+            <div id="Game_Notification_timer" style="display:none; position:absolute; z-index:6; top:250px; left:5px; width: 1920px; heigth: 1000px; margin:auto;">
+                <table cellspacing="0" cellpadding="0" width="1920">
+                    <tr style="height: 1000">
+                        <td width="1920px" align="center"><img id="Game_countdown_image" src="lib/image/3.png"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Game Timer Element -->
+            <div id="Game_Elements" style="display:none; position:absolute; z-index:7; top:0px; left:0px; width: 1920px; heigth: 1080px; margin:auto;">
+                <table id ="Game_Timer_Element">
+                    <tr>
+                        <td>
+                            <img id="Rugby_Timer" src="lib/image/RugbytimerElement.png" alt="Element" style="position:absolute; margin:auto; top:366px; left:468px;"/>
+                        </td>
+                        <td>
+                            <img id="Rugby_semicolon_1" src="lib/image/Rugbysemicolon.png" alt="Semicolon1" style="position:absolute; top:498px; left:757px; margin:auto;"/>
+                        </td>
+                        <td>
+                            <img id="Rugby_minute" src="lib/image/RugbyMinute.png" alt="Minute" style="position:absolute; top:366px; left:809px; margin:auto;"/>
+                            <div id="Game_Minute_timer" style="z-index:50; position:absolute; top:410px; left:850px; font-size:160px; font-family:'Avenir'; width:1080; color:#fff;"><font face ="Avenir"></font></div>
+                        </td>
+                        <td>
+                            <img id="Rugby_semicolon_2" src="lib/image/Rugbysemicolon.png" alt="Semicolon2" style="position:absolute; top:498px; left:1100px; margin:auto;"/>
+                        </td>
+                        <td>
+                            <img id="Rugby_seconds" src="lib/image/RugbySeconds.png" alt="Seconds" style="position:absolute; top:366px; left:1152px; margin:auto;"/>
+                            <div id="Game_Second_timer" style="z-index:50; position:absolute; top:410px; left:1195px; font-size:160px; font-family:'Avenir'; width:1080; color:#fff;"><font face ="Avenir"></font></div>
+                        </td>
+                    </tr>
+                </table>  
+            </div>     
+
+            <button class = "MainReset" onclick="Reset()"></button>   
+        </div>
+
+        <div id="Rugby_Congrats_Game" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=5; display: none; top:0px; left:0px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <div id="Congrats_Video" style="position:absolute;"></div>
+            <!--<img id="Rugby_Win" src="lib/image/gameWin.png" alt="Win" style="position:absolute; top:0px; left:0px; margin:auto;"/>-->
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="Rugby_Lost_Game" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=5; display: none; top:0px; left:0px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <div id="Lose_Video" style="position:absolute;"></div>
+            <!--<img id="Rugby_Lost" src="lib/image/gameLost.png" alt="Lost" style="position:absolute; top:0px; left:0px; margin:auto;"/>-->
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+
+        <div id="Rugby_Enter_Details" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=6; display: none; top:0px; left:0px;">
+
+            <img id="Rugby_Details" src="lib/image/Details.png" alt="Lost" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <!--Email Buttons-->
+            <table align="center" cellspacing="0" cellpadding="0" width="1920" top="550px">
+
+                <tr style="height: 1080px;">
+                    <td width="1920px">
+
+                        <div id="Input_Field_Error" style="z-index:99; position:absolute; top:350px; left:550px; display: none; font-size:40px; font-family:'OpenSans-Light'; width:1080px; color:#ffffff;"><font face ="OpenSans-Light">* Please fill your name.</font></div>
+
+                        <input type="text" id= "NameField" style="position:absolute; top:260px; left:610px; height:75px; width:725px; outline: 0; border: 0; font-size:60px; font-family:'OpenSans-Light'; background: transparent; z-index:100;" autofocus src="lib/img/transparent.png">
+
+                        <button class= "Submit" onclick="SubmitDetails()"></button>
+
+                        <ul class="keyboard" id="keyboard" style="z-index:18; position:absolute;left:540px; top: 420px; color: #0a3957;">
+                            
+                            <font face ="OpenSans-Light"><li class="letter" style="clear: left;">q</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">w</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">e</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">r</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">t</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">y</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">u</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">i</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">o</li></font>
+                            <font face ="OpenSans-Light"><li class="letter lastitem">p</li></font>
+                            
+                            <font face ="OpenSans-Light"><li class="letter" style="clear: left;">a</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">s</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">d</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">f</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">g</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">h</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">j</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">k</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">l</li></font>
+                            <font face ="OpenSans-Light"><li class="letter lastitem">z</li></font>
+                            
+                            <font face ="OpenSans-Light"><li class="letter" style="clear: left;">x</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">c</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">v</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">b</li></font>
+                            <font face ="OpenSans-Light"><li class="letter">n</li></fint>
+                            <font face ="OpenSans-Light"><li class="letter">m</li></font>
+                            <font face ="OpenSans-Light"><li class="symbol"><span class="off">@</span></li></font>
+                            <font face ="OpenSans-Light"><li class="symbol"><span class="off">.</span></li></font>
+                            <font face ="OpenSans-Light"><li class="symbol"><span class="off">-</span></li></font>
+                            <font face ="OpenSans-Light"><li class="symbol lastitem"><span class="off">_</span></li></font>
+                            
+                            <font face ="OpenSans-Light"><li class="clear" style=" clear: left; width: 415px;">Clear</li></font>
+                           <font face ="OpenSans-Light"> <li class="delete lastitem" style="width: 400px;">Backspace</li></font>
+                            
+                            <font face ="OpenSans-Light"><li class="space lastitem">Space &nbsp;</li></font>
+                    </td>  
+                </tr>
+            </table>
+        </div>
+
+        <div id="Rugby_End_Game" style ="position:absolute; width:1920px; height:1080px; background-repeat: no-repeat; z-index=7; display: none; top:0px; left:0px;">
+
+            <!-- Background -->
+            <!--Video Div-->
+            <!-- <div id="Rugby_EndGame_Video" style="position:absolute;"></div> -->
+            <img id="Rugby_End" src="lib/image/RugbyEndGame.png" alt="End" style="position:absolute; top:0px; left:0px; margin:auto;"/>
+
+            <div id="Game_BestTimer_Minute" style="z-index:10; position:absolute; top:450px; left:870px; font-size:160px; font-family:'Avenir'; width:1080px; color:#fff;"></div>
+
+            <div id="Game_BestTimer_Second" style="z-index:10; position:absolute; top:450px; left:1215px; font-size:160px; font-family:'Avenir'; width:1080px; color:#fff;"></div>
+
+            <button class = "MainReset" onclick="Reset()"></button>
+        </div>
+    </body>
+
+    <script>
+
+        console.clear();
+        var idleTime = 0;
+        var stopIdleCounter = true;
+
+        var Game_Snap_Counter = 0;
+
+        var GameTimer = 0;
+
+        var SetGameTimer;
+
+        var triggerFeedback = 0;
+        var isInterrupt = false; /* false by default */
+        var isPlay = false; /* false by default */
+
+        var minutes = "";
+        var seconds = "";
+		
+		var isInsertToDB = false;
+		var isRetrievefromDB = false;
+		
+        var cursorPos = 0;
+        var shift = false, capslock = false;
+        var $write;
+		
+		var feedbackInterval;
+		
+		function ajax_serverReset()
+		{
+			$.ajax({
+		        type: "POST",
+		        url: "velocity.do", 
+		        data: "formType=serverReset",
+				dataType: 'text',
+		        success: function(data) { },
+				complete: function(data) { },
+		        error: function(request, status,error) { }
+			});
+		}
+		
+		function ajax_serverTrigger()
+		{
+			$.ajax({
+		        type: "POST",
+		        url: "velocity.do", 
+		        data: "formType=setServerTrigger",
+				dataType: 'text',
+		        success: function(data) { },
+				complete: function(data) { },
+		        error: function(request, status,error) { }
+			});
+		}
+		
+		function ajax_serverGameComplete(time)
+		{
+			$.ajax({
+		        type: "POST",
+		        url: "velocity.do", 
+		        data: "formType=setServerGameComplete&time=" + time,
+				dataType: 'text',
+		        success: function(data) { },
+				complete: function(data) { },
+		        error: function(request, status,error) { }
+			});
+		}
+		
+        $(function() {
+			ajax_serverReset();	
+			
+            document.getElementById("BackgroundSoundAudio").pause();
+            document.getElementById("BackgroundSoundAudio").currentTime = 0;
+            document.getElementById("BackgroundSoundAudio").play();
+
+
+            //Initialize arduino from backend server
+            ajax_initArduino("flash.do", "formType=initArduino");
+
+            //To Retrieve latest GameTime result and post to block
+			ajax_getLeaderboard("game.do", "formType=getLeaderboard&game=VelocityRugby&noOfResult=10");
+				
+				
+			//animation video
+			$("#Congrats_Video").jPlayer({
+				ready:function(){
+					$("#Congrats_Video").jPlayer("setMedia",{
+						m4v:"lib/video/win.mp4"
+					}).jPlayer("play");
+				},
+				swfPath:"javascript",
+				muted:true,
+				loop:true,
+				supplied:"webmv, ogv, m4v",
+				size:{width:1920, height:1080}
+			});
+				
+			$("#Lose_Video").jPlayer({
+				ready:function(){
+					$("#Lose_Video").jPlayer("setMedia",{
+						m4v:"lib/video/lost.mp4"
+					}).jPlayer("play");
+				},
+				swfPath:"javascript",
+				muted:true,
+				loop:true,
+				supplied:"webmv, ogv, m4v",
+				size:{width:1920, height:1080}
+			});
+			
+            setInterval(function() {
+                idleTime = idleTime + 1;
+                console.log(idleTime);
+                if (idleTime > 5) // 5 minutes
+                {
+                    location.reload();
+                }
+            }, 60000);
+
+            $(this).mousemove(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+
+            $(this).keypress(function (e) {
+                console.log(idleTime);
+                idleTime = 0;
+            });
+
+            //Keyboard InputField
+            $("#NameField").focus(function() {
+                $write = $('#NameField');
+                $("#keyboard").show();
+            });
+
+            $("#NameField").val("");
+
+            //Keyboard functionality
+
+            $('#keyboard li').off('click').on('click',function(){
+                console.log("click");
+                idleTime = 0;
+                
+                var $this = $(this),
+                    character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
+                console.log("character:" +character);
+                // Shift keys
+                if ($this.hasClass('left-shift') || $this.hasClass('right-shift')) {
+                    $('.letter').toggleClass('uppercase');
+                    $('.symbol span').toggle();
+                    
+                    shift = (shift === true) ? false : true;
+                    capslock = false;
+                    return false;
+                }
+                
+                // Caps lock
+                if ($this.hasClass('capslock')) {
+                    $('.letter').toggleClass('uppercase');
+                    capslock = true;
+                    return false;
+                }
+                
+                // Delete
+                if ($this.hasClass('delete')) {
+                    var html = $write.val();
+                    
+                    $write.val(html.substr(0, html.length - 1));
+                    return false;
+                }
+                
+                // Clear
+                if ($this.hasClass('clear')) {
+                    var html = $write.val();
+                    
+                    $write.val("");
+                    return false;
+                }
+                
+                // Special characters
+                if ($this.hasClass('symbol')) character = $('span:visible', $this).html();
+                if ($this.hasClass('space')) character = ' ';
+                if ($this.hasClass('tab')) character = "\t";
+                if ($this.hasClass('return')) character = "\n";
+                
+                // Uppercase letter
+                if ($this.hasClass('uppercase')) character = character.toUpperCase();
+                
+                // Remove shift once a key is clicked.
+                if (shift === true) {
+                    $('.symbol span').toggle();
+                    if (capslock === false) $('.letter').toggleClass('uppercase');
+                    
+                    shift = false;
+                }
+                 // Add the character
+                 //$write.val($write.val() + character);
+
+                var inputValue = $write.val();
+                textBefore = inputValue.substring(0,  cursorPos);
+                textAfter  = inputValue.substring(cursorPos, inputValue.length);
+
+                $write.val(textBefore + character + textAfter);
+                cursorPos += character.length;
+            });
+
+            $("img").on("dragstart", function(event) { event.preventDefault(); });
+        });
+        
+
+        $('#NameField').on('click', function() {
+            cursorPos = document.getElementById("NameField").selectionStart;
+        });
+
+        //To call on backend to set-up arduino and get Feedback method from backend server.
+        function getFeedback()
+        {
+            //To call on ajax getFeedBack
+            ajax_getArduinoFeedback("flash.do", "formType=getArduinoFeedback");
+        }
+
+
+        function Start(){
+
+            idleTime = 0;
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            ajax_addInteraction("function.do", "formType=addInteraction&application=MAIN&mediaURL=1.mp4&projectID=VelocityRugby&interaction=TOUCH");
+
+            $('#Rugby_Start').fadeOut({ duration: 1200, queue: false });
+            $('#Rugby_Start').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+    
+            $('#Rugby_TnC').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+            $('#Rugby_TnC').fadeIn({ duration: 1200, queue: false});
+        }
+
+         function StartRugbyInstructions(){
+
+            idleTime = 0;
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            $('#Rugby_TnC').fadeOut({ duration: 1200, queue: false });
+            $('#Rugby_TnC').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+
+            $('#Rugby_GameInstruction').animate({'left':'0px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+            $('#Rugby_GameInstruction').fadeIn({ duration: 1200, queue: false});
+        }
+
+        function StartRugbyGame(){
+
+            idleTime = 0;
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+
+            $('#Rugby_GameInstruction').fadeOut({ duration: 1200, queue: false });
+            $('#Rugby_GameInstruction').animate({'left':'1921px'}, { duration: 1200, easing: 'easeInOutQuart', queue: false });
+
+            $('#Rugby_GamePage').fadeIn({ duration: 1200, queue: false, complete: function(){
+				ajax_serverTrigger();
+						
+                $("#Game_Notification_timer").show();
+
+                //Start Game Timer countdown: at the end of timer countdown, game timer will start
+
+                var Game_CountdownInterval = setInterval(function () {
+					
+					setTimeout(function(){
+							
+							if (Game_Snap_Counter  == 0 ){
+
+                        		document.getElementById("GameStart").pause();
+                        		document.getElementById("GameStart").currentTime = 0;
+                        		document.getElementById("GameStart").play();
+
+                        		$("#Game_countdown_image").show();
+                        
+		                        setTimeout(function () {
+		                            $("#Game_countdown_image").animate({ width: "500px" }, { queue: false, duration: 500 });
+		                            $("#Game_countdown_image").fadeOut({ queue: false, duration: 500, complete: function () { $("#Game_countdown_image").css("width", "250px"); } });
+		                        }, 200);
+		
+		                        Game_Snap_Counter++;
+		                    } else if (Game_Snap_Counter  == 1 ){
+		
+		                        document.getElementById("GameStart").pause();
+		                        document.getElementById("GameStart").currentTime = 0;
+		                        document.getElementById("GameStart").play();
+		
+		                        $("#Game_countdown_image").attr("src", "lib/image/2.png");
+		                        $("#Game_countdown_image").show();
+		                        
+		                        setTimeout(function () {
+		                            $("#Game_countdown_image").animate({ width: "500px" }, { queue: false, duration: 500 });
+		                            $("#Game_countdown_image").fadeOut({ queue: false, duration: 500, complete: function () { $("#Game_countdown_image").css("width", "250px"); } });
+		                        }, 200);
+		
+		                        Game_Snap_Counter++;
+		                    } else if (Game_Snap_Counter  == 2 ){
+		
+		                        document.getElementById("GameStart").pause();
+		                        document.getElementById("GameStart").currentTime = 0;
+		                        document.getElementById("GameStart").play();
+		
+		                        $("#Game_countdown_image").attr("src", "lib/image/1.png");
+		                        $("#Game_countdown_image").show();
+		                        
+		                        setTimeout(function () {
+		                            $("#Game_countdown_image").animate({ width: "500px" }, { queue: false, duration: 500 });
+		                            $("#Game_countdown_image").fadeOut({ queue: false, duration: 500, complete: function () { $("#Game_countdown_image").css("width", "250px"); } });
+		                        }, 200);
+		
+		                        Game_Snap_Counter++;
+		                    }else if (Game_Snap_Counter  == 3 ){
+		
+		                        document.getElementById("GO").pause();
+		                        document.getElementById("GO").currentTime = 0;
+		                        document.getElementById("GO").play();
+		
+		                        $("#Game_countdown_image").attr("src", "lib/image/GO.png");
+		                        $("#Game_countdown_image").show();
+		                        
+		                        setTimeout(function () {
+		                            $("#Game_countdown_image").animate({ width: "500px" }, { queue: false, duration: 500 });
+		                            $("#Game_countdown_image").fadeOut({ queue: false, duration: 500, complete: function () { $("#Game_countdown_image").css("width", "250px"); } });
+		                        }, 200);
+		
+		                        Game_Snap_Counter++;
+		                    }else if (Game_Snap_Counter  == 4 ){
+		
+		                        //Start Rugby Game
+		                        document.getElementById("BackgroundSoundAudio").pause();
+		
+		                        document.getElementById("Game_sound").pause();
+		                        document.getElementById("Game_sound").currentTime = 0;
+		                        document.getElementById("Game_sound").play();
+		
+		                        Game_Snap_Counter =0;
+		                        clearInterval(Game_CountdownInterval);
+		
+		                        stopIdleCounter = false;
+		
+		                        $("#Game_Notification_timer").hide();
+		                        $("#Game_Elements").show();
+		
+		                        $("#Game_Elements").fadeIn({queue:false, complete: function(){
+		
+		                            RugbyGameTimer();
+									
+									//Interval to keep asking the backend for sensor value: Hence, if sensor value returns a '1', it will call the function interrupt()
+		            				feedbackInterval = setInterval(getFeedback,1000);
+		
+		                        }});
+		                    }
+					},1000);
+                }, 1000);
+            }});
+        }
+
+        //Start Game Timer Count
+        function RugbyGameTimer(){
+
+            //Start Game Timer
+            SetGameTimer = setInterval(function(){
+
+                GameTimer ++;
+
+                //get inidvidual value elements of the timer
+                minutes = ('0' + Math.floor(GameTimer/ 60)).slice(-2);
+                seconds = ('0' + (GameTimer - minutes * 60)).slice(-2);
+
+                //append timer to timer game elements
+                $("#Game_Minute_timer").html(minutes);
+                $("#Game_Second_timer").html(seconds);
+
+                //Check Time value
+                if(seconds < 30){
+					//RugbyGameTimer();
+				}else if(seconds >= 30){
+                    //Check on time, if more than 3mins, automatically navigate to last game page
+
+                    //Stop Counter
+                    clearInterval(SetGameTimer);
+					clearInterval(feedbackInterval);
+
+                    //Upload GameScore to ScoreBoard
+                    if(isInsertToDB == false)
+					{
+                		//Upload GameScore to ScoreBoard
+                		ajax_addGameResult("game.do", "formType=addGameResult&gameFinalResult="+minutes+":"+seconds +"&game=VelocityRugby&name="+$("#NameField").val()+"&contact=&email=&mediaURL=1.mp4&projectID=LOSE");
+					
+						isInsertToDB = true;
+					}
+                    document.getElementById("Game_sound").pause();
+                    document.getElementById("Game_Lose").play();
+
+                    setTimeout(function(){ 
+                        document.getElementById("BackgroundSoundAudio").play();
+                    },1500);
+
+                    $("#Game_Elements").hide();
+                    $("#Rugby_GamePage").fadeOut();
+                    $("#Rugby_Lost_Game").fadeIn({queue:false, complete: function(){
+						ajax_serverGameComplete(minutes + ":" + seconds);
+						
+                        setTimeout(function(){ 
+
+                            $("#Rugby_Lost_Game").fadeOut();
+                            $("#Rugby_Enter_Details").fadeIn({queue:false, complete: function(){
+
+                                if(isRetrievefromDB ==false){
+								
+									//To Retrieve Best Game Time and append to container
+                            		ajax_getBestResult("game.do", "formType=getBestResult&game=VelocityRugby");
+								
+									isRetrievefromDB = true;
+								}
+                            }});
+                        },5000);
+
+                    }});
+                }
+            },1000);
+        }
+
+        //Check if Rugby Button has been pressed. If pressed. Stop timer and upload timer value. Else continue counting
+        function interrupt(flag){
+
+            console.log("interrupt(flag) : " + flag);
+
+            if(isInterrupt == true){
+
+                if (triggerFeedback != flag){
+                    if(triggerFeedback == "1" && flag == "0")
+                    {
+                        RugbyGameTimer();
+                    }
+                    else
+                    {
+                        if(flag != "0")
+                        {
+                            //console.log("1");
+                            show_interrupt(flag);
+                        }
+                    }
+                }
+                else
+                {
+                    show_interrupt(flag);
+                }
+            }
+            else 
+            {
+                if(triggerFeedback != flag)
+                {
+                    if(triggerFeedback == "1" && flag == "0")
+                    {
+                        RugbyGameTimer();
+                    }
+                    else
+                    {
+                        if(flag != "0")
+                        {
+                            //console.log("3");
+                            show_interrupt(flag);
+                        }
+                    }
+                }
+            }
+        }
+        
+        //When Data read returns '1', stop Timer, reset timer value and upload timer value to Scoreboard
+        function show_interrupt(flag){
+
+            //Set Timeout for flag to be equal to "1"
+            isInterrupt = true;
+            triggerFeedback = flag;
+
+            if (flag =="1"){ 
+
+                //Stop Timer Counter
+                clearInterval(SetGameTimer);
+				clearInterval(feedbackInterval);
+
+				console.log("feedbackInterval:"+feedbackInterval);
+				
+                document.getElementById("Game_sound").pause();
+
+                document.getElementById("Game_Win").play();
+
+                setTimeout(function(){ 
+
+                    document.getElementById("BackgroundSoundAudio").play();
+                },5000);
+
+                $("#Game_Elements").hide();
+                $("#Rugby_GamePage").fadeOut();
+                $("#Rugby_Congrats_Game").fadeIn({queue:false, complete: function(){
+					ajax_serverGameComplete(minutes + ":" + seconds);
+					
+                    setTimeout(function(){ 
+
+                        $("#Rugby_Congrats_Game").fadeOut();
+                        $("#Rugby_Enter_Details").fadeIn({queue:false, complete: function(){
+							
+							if(isRetrievefromDB ==false){
+								
+								//To Retrieve Best Game Time and append to container
+                            	ajax_getBestResult("game.do", "formType=getBestResult&game=VelocityRugby");
+								
+								isRetrievefromDB = true;
+							}
+                            
+                        }});
+
+                    },5000);
+
+                }});
+
+            } else if (flag =="0"){
+                //Carry on 
+                RugbyGameTimer();
+            }
+        }
+
+        function SubmitDetails(){
+            idleTime = 0;
+
+            document.getElementById("ClickSoundAudio").pause();
+            document.getElementById("ClickSoundAudio").currentTime = 0;
+            document.getElementById("ClickSoundAudio").play();
+
+            //Check if input field is empty
+            if($.trim($("#NameField").val()) == "")
+            {
+
+                console.log("Input_Field_Error wrong");
+
+                $("#Input_Field_Error").html("* Please fill in all fields.");
+                
+                $("#Input_Field_Error").fadeIn();
+
+                setTimeout(function() {
+                    $("#Input_Field_Error").fadeOut();
+                }, 5000); 
+            }else{
+				
+				$("#NameField").hide();
+           		$("#keyboard").hide();
+				
+				if(isInsertToDB == false)
+				{
+                	//Upload GameScore to ScoreBoard
+                	ajax_addGameResult("game.do", "formType=addGameResult&gameFinalResult="+minutes+":"+seconds +"&game=VelocityRugby&name="+$("#NameField").val()+"&contact=&email=&mediaURL=1.mp4&projectID=WIN");
+					
+					isInsertToDB = true;
+				}
+
+                $("#Rugby_Enter_Details").fadeOut();
+                $("#Rugby_End_Game").fadeIn({queue:false, complete: function(){
+
+                    //POPULATE BEST GAMETIME
+                    setTimeout(function(){ 
+						ajax_serverReset();
+                        location.reload();
+                    },5000);
+                }});
+            }
+        }
+    </script>
+</html>
+
+
